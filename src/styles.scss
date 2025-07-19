@@ -1,9 +1,45 @@
+@import "fonts";
+
 :root {
   --dark-color: #000000;
   --light-color: #ffffff;
+  --primary-color: #ae7aff;
 }
 
 body {
+  font-family: "JetBrains Mono", monospace;
   background-color: var(--dark-color);
   color: var(--light-color);
+}
+
+.skill_tag {
+  padding: 4px 8px;
+  border-radius: 2px;
+  border: 1px solid var(--light-color);
+  display: inline;
+  font-style: 12px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.btn {
+  background-color: #ae7aff;
+  border: none;
+  color: var(--dark-color);
+  padding: 10px 20px;
+  font-weight: 700;
+  font-style: 14px;
+  line-height: 24px;
+}
+
+.h6 {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 800;
+}
+
+.subtitle {
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
 }
