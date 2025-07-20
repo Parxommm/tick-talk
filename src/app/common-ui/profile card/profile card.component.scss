@@ -1,6 +1,6 @@
 .profile-card {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr 2fr 2fr 1fr;
   gap: 32px;
   border: 1px solid var(--light-color);
   padding: 32px 24px;
@@ -27,6 +27,11 @@
 
 .profile_card__tags {
   display: flex;
+  flex-wrap: wrap;
   gap: 4px;
   align-items: flex-start;
+  height: min-content;
+}
+
+.skill_tag {
 }

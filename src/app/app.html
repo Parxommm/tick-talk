@@ -1,3 +1,6 @@
-<h1>Hello!</h1>
-<app-profile-card></app-profile-card>
+<div class="profile-card__wrapper">
+  @for (profile of profiles; track $index) {
+  <app-profile-card [profile]="profile"></app-profile-card>
+  }
+</div>
 <router-outlet />
