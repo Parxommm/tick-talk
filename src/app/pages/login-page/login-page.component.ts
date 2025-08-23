@@ -1,5 +1,11 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-login-page',
@@ -8,12 +14,20 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './login-page.component.scss',
 })
 export class LoginPageComponent {
+  authService = inject(AuthService);
+
   form = new FormGroup({
-    username: new FormControl(''),
-    password: new FormControl(''),
+    username: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
   });
 
   onSubmit() {
-    console.log(this.form.value);
+    if (this.form.valid) {
+      const formValues = this.form.value as {
+        username: string;
+        password: string;
+      };
+      this.authService.login(formValues).subscribe((data) => console.log(data));
+    }
   }
 }
