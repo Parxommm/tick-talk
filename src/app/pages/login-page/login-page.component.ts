@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -18,6 +18,8 @@ export class LoginPageComponent {
   authService = inject(AuthService);
   router = inject(Router);
 
+  isPasswordVisible = signal<boolean>(false);
+
   form = new FormGroup({
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
@@ -34,5 +36,9 @@ export class LoginPageComponent {
         this.router.navigate(['']);
       });
     }
+  }
+
+  togglePasswordVisibility() {
+    this.isPasswordVisible.set(!this.isPasswordVisible());
   }
 }
