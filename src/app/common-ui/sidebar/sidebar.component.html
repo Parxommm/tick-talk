@@ -1,1 +1,58 @@
-<p>sidebar works!</p>
+<header class="header">
+  <img
+    class="logo"
+    src="/assets/svg/logo-tik-talk.svg"
+    alt="logo"
+    width="61"
+    height="74"
+  />
+</header>
+
+<nav class="nav">
+  <ul class="nav__list">
+    @for (menuItem of menuItems; track $index) {
+    <li class="nav__item">
+      <a class="nav__link" routerLink="/search" routerLinkActive="active">
+        <svg class="nav__icon" [icon]="menuItem.icon"></svg>
+        <span class="nav__text">{{ menuItem.label }}</span>
+      </a>
+    </li>
+    }
+  </ul>
+</nav>
+
+<section class="subscribers">
+  <h2 class="subscribers__title">Подписки</h2>
+  <ul class="subscribers__list">
+    @for (profile of subscribers$ | async; track $index) {
+    <app-subscriber-card [profile]="profile"></app-subscriber-card>
+    }
+  </ul>
+  <a class="subscribers__link" [routerLink]="['/subscribers']"
+    >Все подписчики ></a
+  >
+</section>
+
+<footer class="profile">
+  @if(me(); as me) { @if (me.avatarUrl) {
+  <img
+    class="profile__avatar"
+    [src]="me.avatarUrl | imgUrl"
+    alt="profile avatar"
+    width="32"
+    height="32"
+  />
+  } @else {
+  <img
+    class="profile__avatar"
+    src="/assets/images/avatar.png"
+    alt="profile avatar"
+    width="32"
+    height="32"
+  />
+  }
+
+  <span class="profile__name">{{ me.username }}</span>
+  <a class="profile__settings-link" [routerLink]="['/settings']"></a>
+  }
+</footer>
