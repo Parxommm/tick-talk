@@ -1,0 +1,117 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 12px;
+  min-width: 300px;
+  height: 100dvh;
+  background-color: var(--dark-color);
+}
+
+.header {
+  padding: 0 16px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav__item {
+  display: block;
+  padding: 8px 16px;
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--dark-hover-color);
+    color: var(--primary-color);
+
+    .nav__icon,
+    .nav__text {
+      color: var(--primary-color);
+    }
+  }
+}
+
+.nav__link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav__icon {
+  width: 16px;
+  height: 16px;
+  color: var(--light-color);
+}
+
+.nav__text {
+  color: var(--light-color);
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.subscribers {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 16px;
+}
+
+.subscribers__title {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--light-color_75);
+}
+
+.subscribers__list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  list-style: none;
+}
+
+.subscribers__link {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--primary-color);
+}
+
+.profile {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  background-color: var(--dark-hover-color);
+  border-radius: 2px;
+}
+
+.profile__name {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.profile__settings-link {
+  display: block;
+  background-image: url("/assets/svg/settings.svg");
+  width: 16px;
+  height: 16px;
+  background-size: cover;
+  margin-left: auto;
+}
