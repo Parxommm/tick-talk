@@ -22,9 +22,13 @@ export class ProfileService {
       .pipe(tap((res) => this.me.set(res)));
   }
 
-  getSubscribersShortList() {
+  getSubscribersShortList(subsAmount = 3) {
     return this.http
       .get<Pageble<Profile>>(`${this.baseApiUrl}account/subscribers/`)
-      .pipe(map((res) => res.items.slice(0, 3)));
+      .pipe(map((res) => res.items.slice(0, subsAmount)));
+  }
+
+  getAccountById(id: string) {
+    return this.http.get<Profile>(`${this.baseApiUrl}account/${id}`);
   }
 }

@@ -22,7 +22,7 @@
 </nav>
 
 <section class="subscribers">
-  <h2 class="subscribers__title">Подписки</h2>
+  <h3 class="subscribers__title">Подписки</h3>
   <ul class="subscribers__list">
     @for (profile of subscribers$ | async; track $index) {
     <app-subscriber-card [profile]="profile"></app-subscriber-card>
@@ -53,6 +53,8 @@
   }
 
   <span class="profile__name">{{ me.username }}</span>
-  <a class="profile__settings-link" [routerLink]="['/settings']"></a>
+  <a class="profile__settings-link" [routerLink]="['/settings']">
+    <svg class="profile-settings__icon" icon="settings"></svg>
+  </a>
   }
 </footer>

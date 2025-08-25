@@ -109,9 +109,12 @@
 
 .profile__settings-link {
   display: block;
-  background-image: url("/assets/svg/settings.svg");
   width: 16px;
   height: 16px;
   background-size: cover;
   margin-left: auto;
+}
+
+.profile-settings__icon {
+  color: var(--primary-color);
 }
