@@ -1,0 +1,22 @@
+@if (profile(); as profile) { @if(profile.avatarUrl) {
+<img
+  class="profile__avatar"
+  [src]="profile.avatarUrl | imgUrl"
+  alt="profile avatar"
+  width="112"
+  height="112"
+/>
+} @else {
+<img
+  class="profile__avatar"
+  src="/assets/images/avatar.png"
+  alt="profile avatar"
+  width="112"
+  height="112"
+/>
+} }
+
+<div class="profile__info">
+  <h4 class="profile__fullname">Райн Гослинг</h4>
+  <span class="profile__username">ryan.gosling</span>
+</div>

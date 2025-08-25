@@ -1,0 +1,30 @@
+:host {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.profile__avatar {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+}
+
+.profile__info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: var(--light-color);
+}
+
+.profile__fullname {
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.profile__username {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+}

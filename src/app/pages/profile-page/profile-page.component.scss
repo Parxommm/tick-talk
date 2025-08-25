@@ -1,3 +1,108 @@
 :host {
   display: block;
 }
+
+.profile-page__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-settings {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 174px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.btn__icon {
+  width: 16px;
+  height: 16px;
+  color: var(--dark-color);
+}
+
+.profile-page__body {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 64px;
+  padding: 24px;
+}
+
+.profile-page__sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 0 24px;
+}
+
+.profile-page__subscribers {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.subscribers__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.subscribers__counter {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  padding: 1px 5px;
+  background-color: #98e9ab;
+  color: var(--dark-color);
+}
+
+.subscribers_wrapper {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.subscriber__icon-btn {
+  .subscriber__icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+  }
+}
+
+.subscriber__icon-btn_add {
+  .subscriber__icon {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+  }
+}
+
+.skills {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.skills__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about__description {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+}

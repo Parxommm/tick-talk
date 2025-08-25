@@ -1,1 +1,65 @@
-<p>profile-page works!</p>
+@if (profile$ | async; as profile) {
+<header class="profile-page__header">
+  <app-profile-header [profile]="profile"></app-profile-header>
+  <a class="btn btn-settings" [routerLink]="['/settings']">
+    <span>Редактировать</span>
+    <svg class="btn__icon" icon="settings"></svg>
+  </a>
+</header>
+
+<main class="profile-page__body">
+  <section class="profile-page__posts">Posts</section>
+  <article class="profile-page__sidebar">
+    <div class="profile-page__subscribers">
+      <div class="subscribers__header">
+        <h3 class="subscribers__title h6">Подписчики</h3>
+        <span class="subscribers__counter">23</span>
+      </div>
+      <div class="subscribers_wrapper">
+        @for (subscriber of subscribers$ | async; track $index) {
+        <a
+          class="subscriber__icon-btn"
+          [routerLink]="['/profile', subscriber.id]"
+        >
+          <img
+            class="subscriber__icon"
+            [src]="subscriber.avatarUrl | imgUrl"
+            alt="subscriber icon"
+          />
+        </a>
+        }
+        <a
+          class="subscriber__icon-btn subscriber__icon-btn_add"
+          [routerLink]="['/search']"
+        >
+          <img
+            class="subscriber__icon"
+            src="/assets/svg/add.svg"
+            alt="add subscribers"
+          />
+        </a>
+      </div>
+    </div>
+
+    <div class="skills">
+      <h3 class="skills__title h6">Навыки</h3>
+      <div class="skills__wrapper">
+        @for (skill of ['HTML', 'CSS', 'JS', 'React', 'Angular', 'Vue']; track
+        $index) {
+        <div class="skill_tag">{{ skill }}</div>
+        }
+      </div>
+    </div>
+
+    <div class="about">
+      <h3 class="about__title h6">Навыки</h3>
+      <p class="about__description">
+        Список навыков, который мы обсудили выше, — основа резюме,
+        но не единственная его часть. Также можно рассказать о себе
+        в классическом смысле — этот раздел можно добавить в сопроводительное
+        письмо.
+      </p>
+    </div>
+  </article>
+</main>
+}
