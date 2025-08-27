@@ -6,6 +6,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 48px;
 }
 
 .btn-settings {
@@ -29,7 +30,6 @@
   display: grid;
   grid-template-columns: 1fr 340px;
   gap: 64px;
-  padding: 24px;
 }
 
 .profile-page__sidebar {
