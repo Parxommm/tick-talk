@@ -27,11 +27,16 @@
         rows="4"
         formControlName="description"
       ></textarea>
+    </label>
 
-      <label class="tt-form-label">
-        <span class="tt-form-label__text">Навыки</span>
-        <input class="tt-form-input" type="text" formControlName="stack" />
-      </label>
+    <label class="tt-form-label">
+      <span class="tt-form-label__text">Аватар</span>
+      <app-avatar-upload></app-avatar-upload>
+    </label>
+
+    <label class="tt-form-label">
+      <span class="tt-form-label__text">Навыки</span>
+      <input class="tt-form-input" type="text" formControlName="stack" />
     </label>
   </div>
   <div class="profile-form__btns">
