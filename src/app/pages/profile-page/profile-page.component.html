@@ -44,8 +44,7 @@
     <div class="skills">
       <h3 class="skills__title h6">Навыки</h3>
       <div class="skills__wrapper">
-        @for (skill of ['HTML', 'CSS', 'JS', 'React', 'Angular', 'Vue']; track
-        $index) {
+        @for (skill of profile.stack; track $index) {
         <div class="skill_tag">{{ skill }}</div>
         }
       </div>
