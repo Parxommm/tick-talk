@@ -10,3 +10,7 @@ export interface Profile {
   city: string;
   description: string;
 }
+
+export type PartialProfile = Partial<Profile> & {
+  username?: string | undefined;
+};
