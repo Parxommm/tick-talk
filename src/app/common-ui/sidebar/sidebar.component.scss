@@ -25,8 +25,17 @@
 
 .nav__item {
   display: block;
-  padding: 8px 16px;
+}
 
+.nav__link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  text-decoration: none;
+  cursor: pointer;
+
+  &.active,
   &:hover,
   &:focus-visible {
     background-color: var(--dark-hover-color);
@@ -37,14 +46,6 @@
       color: var(--primary-color);
     }
   }
-}
-
-.nav__link {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-  cursor: pointer;
 }
 
 .nav__icon {

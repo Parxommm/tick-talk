@@ -9,6 +9,7 @@
       type="text"
       name="login"
       placeholder="Введите логин"
+      autocomplete="username"
     />
   </label>
 
@@ -21,6 +22,7 @@
         [type]="isPasswordVisible() ? 'text' : 'password'"
         name="password"
         placeholder="Введите пароль"
+        autocomplete="current-password"
       />
       <button
         class="show-password"
