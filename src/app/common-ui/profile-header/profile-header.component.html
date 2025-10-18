@@ -1,20 +1,6 @@
-@if (profile(); as profile) { @if(profile.avatarUrl) {
-<img
-  class="profile__avatar"
-  [src]="profile.avatarUrl | imgUrl"
-  alt="profile avatar"
-  width="112"
-  height="112"
-/>
-} @else {
-<img
-  class="profile__avatar"
-  src="/assets/images/avatar.png"
-  alt="profile avatar"
-  width="112"
-  height="112"
-/>
-} }
+@if (profile(); as profile) {
+<app-avatar-circle [avatarUrl]="profile.avatarUrl"> </app-avatar-circle>
+}
 
 <div class="profile__info">
   <h4 class="profile__fullname">Райн Гослинг</h4>
