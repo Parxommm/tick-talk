@@ -4,6 +4,7 @@ import { catchError, tap, throwError } from 'rxjs';
 import { TokenResponse } from './auth.interface';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
+import { environment } from '../../environment';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,7 @@ export class AuthService {
   cookieService = inject(CookieService);
   router: Router = inject(Router);
 
-  baseApiUrl = 'https://icherniakov.ru/yt-course/auth/';
+  private readonly baseApiUrl = `${environment.baseApiUrl}auth/`;
   token: string | null = null;
   refreshToken: string | null = null;
 
@@ -43,20 +44,18 @@ export class AuthService {
         refreshToken: this.refreshToken,
       })
       .pipe(
-        tap((val) => {
-          this.saveTokens(val);
-        }),
-        catchError((error) => {
+        tap((val) => this.saveTokens(val)),
+        catchError((err) => {
           this.logout();
-          return throwError(() => error);
+          return throwError(() => err);
         })
       );
   }
 
   logout() {
+    this.cookieService.deleteAll();
     this.token = null;
-    this.cookieService.delete('token');
-    this.cookieService.delete('refreshToken');
+    this.refreshToken = null;
     this.router.navigate(['/login']);
   }
 

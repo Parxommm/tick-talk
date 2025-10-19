@@ -1,3 +1,79 @@
 :host {
-  display: block;
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  grid-gap: 16px;
+  background-color: var(--dark-color);
+  border: 1px solid var(--light-color);
+  padding: 20px;
+}
+
+.post-body {
+  display: grid;
+  grid-gap: 12px;
+}
+
+.post__author {
+  color: var(--light-color);
+  font-size: 14px;
+  line-height: 21px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.post-created-at {
+  color: var(--light-color_75);
+  font-size: 12px;
+  line-height: 16px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.post-text {
+  color: var(--light-color);
+  font-size: 12px;
+  line-height: 16px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.comments-counter {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.comments-icon {
+  color: var(--primary-color);
+}
+
+.comments-amount {
+  color: var(--primary-color);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+}
+
+.post-comments__wrapper {
+  display: grid;
+  gap: 8px;
+  max-height: 150px;
+  overflow-y: scroll;
+  padding: 8px 0;
+  padding-right: 10px;
+}
+
+.post-comments__wrapper::-webkit-scrollbar {
+  width: 0.5rem;
+  background-color: transparent;
+}
+
+.post-comments__wrapper::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.post-comments__wrapper::-webkit-scrollbar-track {
+  background-color: var(--dark-color);
+  border-radius: 4px;
 }

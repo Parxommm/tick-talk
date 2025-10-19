@@ -9,9 +9,12 @@
   class="hidden-textarea"
   placeholder="Напишите что-нибудь"
   rows="1"
+  [(ngModel)]="postText"
   (input)="onTextAreaInput($event)"
 ></textarea>
+
 <div class="post__smiles"></div>
-<button class="post__btn btn-icon">
+
+<button class="post__btn btn-icon" (click)="onCreatePost()">
   <svg class="svg16" icon="send"></svg>
 </button>
