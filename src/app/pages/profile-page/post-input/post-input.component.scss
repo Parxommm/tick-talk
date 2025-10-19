@@ -7,11 +7,14 @@
   background-color: var(--dark-color);
   border: 1px solid var(--light-color);
   border-radius: 2px;
+
+  &.comment {
+    border: 1px dashed var(--light-color);
+  }
 }
 
 .hidden-textarea {
   width: 100%;
-  height: auto;
   resize: none;
   font-weight: 500;
   font-size: 14px;

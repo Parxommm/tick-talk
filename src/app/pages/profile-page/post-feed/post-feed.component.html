@@ -1,2 +1,5 @@
 <app-post-input></app-post-input>
-<app-post></app-post>
+
+@for (post of feed(); track $index) {
+<app-post [post]="post"></app-post>
+}

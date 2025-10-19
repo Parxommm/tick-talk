@@ -1,3 +1,22 @@
 :host {
-  display: block;
+  display: grid;
+  gap: 16px;
+  overflow-y: scroll;
+  padding-right: 5px;
+}
+
+:host::-webkit-scrollbar {
+  width: 0.5rem;
+  background-color: var(--dark-color);
+}
+
+:host::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+:host::-webkit-scrollbar-track {
+  background-color: var(--dark-color);
+  border-radius: 4px;
 }
