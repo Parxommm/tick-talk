@@ -1,13 +1,17 @@
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { environment } from '../../../environment';
 import { HttpClient } from '@angular/common/http';
 import { Chat, ChatsResponse, Message } from '../interfaces/chat.interface';
+import { ProfileService } from './profile.service';
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ChatsService {
   #http = inject(HttpClient);
+  me = inject(ProfileService).me;
+  activeChatMessages = signal<Message[]>([]);
 
   private readonly baseApiUrl = environment.baseApiUrl;
   private readonly chatUrl = `${this.baseApiUrl}chat/`;
@@ -22,7 +26,31 @@ export class ChatsService {
   }
 
   getChatById(chatId: number) {
-    return this.#http.get<Chat>(`${this.chatUrl}${chatId}`);
+    return this.#http.get<Chat>(`${this.chatUrl}${chatId}`).pipe(
+      map((chat) => {
+        const patchedMessages = chat.messages.map((message) => {
+          return {
+            ...message,
+            user:
+              chat.userFirst.id === message.userFromId
+                ? chat.userFirst
+                : chat.userSecond,
+            isMine: this.me()?.id === message.userFromId,
+          };
+        });
+
+        this.activeChatMessages.set(patchedMessages);
+
+        return {
+          ...chat,
+          companion:
+            this.me()?.id === chat.userFirst.id
+              ? chat.userSecond
+              : chat.userFirst,
+          messages: patchedMessages,
+        };
+      })
+    );
   }
 
   sendMessage(chatId: number, message: string) {

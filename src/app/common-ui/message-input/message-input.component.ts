@@ -1,9 +1,42 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  inject,
+  Output,
+  Renderer2,
+} from '@angular/core';
+
+import { FormsModule } from '@angular/forms';
+import { ProfileService } from '../../data/services/profile.service';
+import { AvatarCircleComponent } from '../avatar-circle/avatar-circle.component';
+import { SvgIconComponent } from '../svg-icon/svg-icon.component';
 
 @Component({
   selector: 'app-message-input',
-  imports: [],
+  imports: [FormsModule, AvatarCircleComponent, SvgIconComponent],
   templateUrl: './message-input.component.html',
   styleUrl: './message-input.component.scss',
 })
-export class MessageInputComponent { }
+export class MessageInputComponent {
+  r2 = inject(Renderer2);
+  me = inject(ProfileService).me;
+
+  postText = '';
+
+  @Output() created = new EventEmitter<String>();
+
+  onTextAreaInput(event: Event) {
+    const textarea = event.target as HTMLTextAreaElement;
+
+    this.r2.setStyle(textarea, 'height', 'auto');
+    this.r2.setStyle(textarea, 'height', `${textarea.scrollHeight}px`);
+  }
+
+  onCreatePost() {
+    if (!this.postText) {
+      return;
+    }
+    this.created.emit(this.postText);
+    this.postText = '';
+  }
+}
