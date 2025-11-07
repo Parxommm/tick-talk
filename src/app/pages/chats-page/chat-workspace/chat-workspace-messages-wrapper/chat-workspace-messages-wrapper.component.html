@@ -1,1 +1,8 @@
-<app-chat-workspace-message></app-chat-workspace-message>
+<div class="messages-wrapper">
+  @for (message of messages(); track $index) {
+  <app-chat-workspace-message [message]="message"></app-chat-workspace-message>
+  }
+</div>
+<app-message-input
+  (created)="onSendMessage($event.toString())"
+></app-message-input>
