@@ -1,1 +1,19 @@
-<p>chats-list works!</p>,
+<div class="chats-filters-input-wrapper">
+  <label class="tt-form-label">
+    <input
+      class="tt-form-input"
+      type="text"
+      placeholder="Искать..."
+      [formControl]="filterChatsControl"
+    />
+  </label>
+</div>
+
+@for(chat of chats$ | async; track $index ) {
+<button
+  chats
+  [chat]="chat"
+  [routerLink]="[chat.id]"
+  routerLinkActive="active"
+></button>
+}

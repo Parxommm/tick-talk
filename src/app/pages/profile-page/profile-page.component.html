@@ -1,10 +1,17 @@
 @if (profile$ | async; as profile) {
 <header class="profile-page__header">
   <app-profile-header [profile]="profile"></app-profile-header>
+
+  @if (isMyPage()) {
   <a class="btn btn-settings" [routerLink]="['/settings']">
     <span>Редактировать</span>
     <svg class="btn__icon" icon="settings"></svg>
   </a>
+  } @else {
+  <button class="btn btn-settings" (click)="startChatWith(profile.id)">
+    Написать
+  </button>
+  }
 </header>
 
 <main class="profile-page__body">

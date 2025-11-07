@@ -3,12 +3,14 @@
 
 :root {
   --dark-color: #000000;
+  --dark-active-color: #161616;
   --light-color: #ffffff;
   --light-color_75: #ffffffbf;
   --primary-color: #ae7aff;
   --gray-color: #5f646d;
   --dark-hover-color: #161616;
   --light-transparent-color: #ffffffbf;
+  --light-border: 1px solid var(--light-color);
 }
 
 *,
@@ -130,6 +132,12 @@ body {
   font-size: 14px;
   line-height: 21px;
   color: var(--light-color_75);
+
+  &:focus-visible,
+  &:hover {
+    outline: 1px solid var(--primary-color);
+    border-radius: 4px;
+  }
 }
 
 .tt-form-label {
@@ -153,8 +161,10 @@ body {
   border-bottom: 1px solid var(--light-color);
   background: none;
   height: 33px;
+  padding: 12px 20px;
 
-  &:focus-visible {
+  &:focus-visible,
+  &:hover {
     outline: 1px solid var(--primary-color);
     border-radius: 4px;
   }
