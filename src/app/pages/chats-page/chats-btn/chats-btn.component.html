@@ -1,1 +1,13 @@
-<p>chats-btn works!</p>,
+@if (chat(); as chat) {
+<app-avatar-circle
+  class="size32"
+  [avatarUrl]="chat.userFrom.avatarUrl"
+></app-avatar-circle>
+
+<div class="last-message-wrapper">
+  <span class="last-message__author"
+    >{{ chat.userFrom.firstName }} {{ chat.userFrom.lastName }}</span
+  >
+  <span class="last-message__text">{{ chat.message ?? "Нет сообщений" }}</span>
+</div>
+}

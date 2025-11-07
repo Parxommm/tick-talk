@@ -1,3 +1,33 @@
 :host {
-  display: block;
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  grid-gap: 16px;
+  width: 100%;
+  border: none;
+  border-bottom: var(--light-border);
+  padding: 24px 20px;
+  background: none;
+  cursor: pointer;
+
+  &:hover,
+  &:focus-visible,
+  &.active {
+    background: var(--dark-active-color);
+  }
+}
+
+.last-message-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0px;
+  color: var(--light-color);
+  text-align: left;
+}
+
+.last-message__author {
+  color: var(--light-color_75);
 }
