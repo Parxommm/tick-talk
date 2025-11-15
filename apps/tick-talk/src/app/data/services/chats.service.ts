@@ -1,8 +1,7 @@
 import { inject, Injectable, signal } from '@angular/core';
-import { environment } from '../../../environment';
 import { HttpClient } from '@angular/common/http';
 import { Chat, ChatsResponse, Message } from '../interfaces/chat.interface';
-import { ProfileService } from './profile.service';
+import { ProfileService } from '@tt/profile';
 import { map } from 'rxjs';
 
 @Injectable({
@@ -13,7 +12,7 @@ export class ChatsService {
   me = inject(ProfileService).me;
   activeChatMessages = signal<Message[]>([]);
 
-  private readonly baseApiUrl = environment.baseApiUrl;
+  private readonly baseApiUrl = 'https://icherniakov.ru/yt-course/';
   private readonly chatUrl = `${this.baseApiUrl}chat/`;
   private readonly messageUrl = `${this.baseApiUrl}message/`;
 

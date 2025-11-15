@@ -4,7 +4,6 @@ import { catchError, tap, throwError } from 'rxjs';
 import { TokenResponse } from './auth.interface';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
-import { environment } from '../../../../../apps/tick-talk/src/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +13,7 @@ export class AuthService {
   cookieService = inject(CookieService);
   router: Router = inject(Router);
 
-  private readonly baseApiUrl = `${environment.baseApiUrl}auth/`;
+  private readonly baseApiUrl = 'https://icherniakov.ru/yt-course/auth/';
   token: string | null = null;
   refreshToken: string | null = null;
 
