@@ -7,9 +7,8 @@ import {
 } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
-import { ProfileService } from '../../data/services/profile.service';
-import { AvatarCircleComponent } from '../avatar-circle/avatar-circle.component';
-import { SvgIconComponent } from '../svg-icon/svg-icon.component';
+import { ProfileService } from '@tt/profile';
+import { AvatarCircleComponent, SvgIconComponent } from '@tt/common-ui';
 
 @Component({
   selector: 'app-message-input',
