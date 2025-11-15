@@ -4,7 +4,7 @@ import { catchError, tap, throwError } from 'rxjs';
 import { TokenResponse } from './auth.interface';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
-import { environment } from '../../environment';
+import { environment } from '../../../../../apps/tick-talk/src/environment';
 
 @Injectable({
   providedIn: 'root',

@@ -7,7 +7,9 @@
       "default",
       "!{projectRoot}/tsconfig.spec.json",
       "!{projectRoot}/**/*.spec.[jt]s",
-      "!{projectRoot}/karma.conf.js"
+      "!{projectRoot}/karma.conf.js",
+      "!{projectRoot}/.eslintrc.json",
+      "!{projectRoot}/eslint.config.mjs"
     ]
   },
   "targetDefaults": {
@@ -19,7 +21,25 @@
     "test": {
       "inputs": ["default", "^production", "{workspaceRoot}/karma.conf.js"],
       "cache": true
+    },
+    "@nx/eslint:lint": {
+      "cache": true,
+      "inputs": [
+        "default",
+        "{workspaceRoot}/.eslintrc.json",
+        "{workspaceRoot}/.eslintignore",
+        "{workspaceRoot}/eslint.config.mjs"
+      ]
     }
   },
-  "nxCloudId": "69186e281c2c994c75825d04"
+  "nxCloudId": "69186e281c2c994c75825d04",
+  "generators": {
+    "@nx/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "none"
+    },
+    "@nx/angular:component": {
+      "style": "css"
+    }
+  }
 }
