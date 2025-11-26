@@ -22,7 +22,7 @@ export class MessageInputComponent {
 
   postText = '';
 
-  @Output() created = new EventEmitter<String>();
+  @Output() created = new EventEmitter<string>();
 
   onTextAreaInput(event: Event) {
     const textarea = event.target as HTMLTextAreaElement;

@@ -6,7 +6,8 @@
     "declarationMap": true,
     "inlineSources": true,
     "inlineSourceMap": true,
-    "types": []
+    "types": [],
+    "sourceMap": true
   },
   "exclude": ["src/**/*.spec.ts", "jest.config.ts", "src/**/*.test.ts"],
   "include": ["src/**/*.ts"]
