@@ -1,39 +1,8 @@
 {
-  "angular-schematics.schematicsDefaultOptions": {
-    "angular-*": {
-      "style": "scss",
-      "externalTemplate": true
-    },
-    "angular-component": {
-      "skipChangeDetectionOnPush": true
-    },
-    "angular-page": {
-      "skipChangeDetectionOnPush": true
-    }
-  },
-  "cSpell.words": [
-    "выше",
-    "Гослинг",
-    "добавить",
-    "единственная",
-    "классическом",
-    "который",
-    "можно",
-    "навыков",
-    "обсудили",
-    "основа",
-    "письмо",
-    "раздел",
-    "Райн",
-    "рассказать",
-    "резюме",
-    "себе",
-    "смысле",
-    "сопроводительное",
-    "Список",
-    "Также",
-    "часть",
-    "этот",
-    "Pageble"
-  ]
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.surveys.enabled": false,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

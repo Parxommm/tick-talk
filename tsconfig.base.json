@@ -19,16 +19,7 @@
       "@tt/common-ui": ["libs/common-ui/src/index.ts"],
       "@tt/shared": ["libs/shared/src/index.ts"]
     },
-    "types": [
-      "node",
-      "jest",
-      "@angular/core",
-      "@tt/auth",
-      "@tt/posts",
-      "@tt/profile",
-      "@tt/common-ui",
-      "@tt/shared"
-    ],
+    "types": ["node", "jest", "@angular/core"],
     "baseUrl": ".",
     "rootDir": "."
   },
@@ -42,10 +33,12 @@
   "files": [],
   "references": [
     {
-      "path": "./tsconfig.app.json"
+      // "path": "./tsconfig.app.json"
+      "path": "./apps/tick-talk/tsconfig.app.json"
     },
     {
-      "path": "./tsconfig.spec.json"
+      // "path": "./tsconfig.spec.json"
+      "path": "./apps/tick-talk/tsconfig.spec.json"
     }
   ],
   "exclude": ["node_modules", "tmp"]
