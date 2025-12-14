@@ -1,4 +1,6 @@
 import { Routes } from '@angular/router';
+import { provideEffects } from '@ngrx/effects';
+import { provideState } from '@ngrx/store';
 import { LoginPageComponent, canActivateAuth } from '@tt/auth';
 import { chatsRoutes } from '@tt/chats';
 import { LayoutComponent } from '@tt/layout';
@@ -7,6 +9,7 @@ import {
   SettingsPageComponent,
   ProfilePageComponent,
 } from '@tt/profile';
+import { profileFeature, ProfileEffects } from '@tt/profile';
 
 export const routes: Routes = [
   {
@@ -29,6 +32,10 @@ export const routes: Routes = [
       {
         path: 'search',
         component: SearchPageComponent,
+        providers: [
+          provideState(profileFeature),
+          provideEffects(ProfileEffects),
+        ],
       },
       { path: 'chats', loadChildren: () => chatsRoutes },
     ],

@@ -49,8 +49,9 @@ export class ProfileService {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   filterProfiles(params: Record<string, any>) {
-    return this.http
-      .get<Pageble<Profile>>(`${this.baseApiUrl}account/accounts`, { params })
-      .pipe(tap((res) => this.filteredProfiles.set(res.items)));
+    return this.http.get<Pageble<Profile>>(
+      `${this.baseApiUrl}account/accounts`,
+      { params }
+    );
   }
 }
