@@ -4,7 +4,7 @@ import { PostComment } from '../../data';
 import { AvatarCircleComponent } from '@tt/common-ui';
 
 @Component({
-  selector: 'app-comment',
+  selector: 'tt-comment',
   imports: [AvatarCircleComponent, DatePipe],
   templateUrl: './comment.component.html',
   styleUrl: './comment.component.scss',

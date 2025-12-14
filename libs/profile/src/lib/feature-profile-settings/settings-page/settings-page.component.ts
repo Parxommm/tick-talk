@@ -5,7 +5,7 @@ import { ProfileService, PartialProfile } from '../../data/index';
 import { firstValueFrom } from 'rxjs';
 
 @Component({
-  selector: 'app-settings-page',
+  selector: 'tt-settings-page',
   imports: [ProfileHeaderComponent, ReactiveFormsModule, AvatarUploadComponent],
   templateUrl: './settings-page.component.html',
   styleUrl: './settings-page.component.scss',

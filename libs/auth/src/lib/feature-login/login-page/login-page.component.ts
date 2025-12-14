@@ -6,10 +6,10 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '@tt/auth';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
-  selector: 'app-login-page',
+  selector: 'tt-login-page',
   imports: [ReactiveFormsModule],
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.scss',
@@ -31,7 +31,7 @@ export class LoginPageComponent {
         username: string;
         password: string;
       };
-      this.authService.login(formValues).subscribe((data) => {
+      this.authService.login(formValues).subscribe(() => {
         this.router.navigate(['']);
       });
     }

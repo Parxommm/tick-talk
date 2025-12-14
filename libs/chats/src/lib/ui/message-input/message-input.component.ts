@@ -11,7 +11,7 @@ import { ProfileService } from '@tt/profile';
 import { AvatarCircleComponent, SvgIconComponent } from '@tt/common-ui';
 
 @Component({
-  selector: 'app-message-input',
+  selector: 'tt-message-input',
   imports: [FormsModule, AvatarCircleComponent, SvgIconComponent],
   templateUrl: './message-input.component.html',
   styleUrl: './message-input.component.scss',

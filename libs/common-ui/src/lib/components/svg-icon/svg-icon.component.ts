@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   standalone: true,
-  selector: 'svg[icon]',
+  selector: 'tt-svg[icon]',
   imports: [],
   template: '<svg:use [attr.href]="href"></svg:use>',
   styles: [],

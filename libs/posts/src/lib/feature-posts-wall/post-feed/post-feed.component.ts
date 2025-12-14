@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   Component,
   ElementRef,
   HostListener,
@@ -11,12 +12,12 @@ import { firstValueFrom } from 'rxjs';
 import { PostComponent } from '../posts/post.component';
 
 @Component({
-  selector: 'app-post-feed',
+  selector: 'tt-post-feed',
   imports: [PostInputComponent, PostComponent],
   templateUrl: './post-feed.component.html',
   styleUrl: './post-feed.component.scss',
 })
-export class PostFeedComponent {
+export class PostFeedComponent implements AfterViewInit {
   postService = inject(PostService);
   hostElement = inject(ElementRef);
   r2 = inject(Renderer2);

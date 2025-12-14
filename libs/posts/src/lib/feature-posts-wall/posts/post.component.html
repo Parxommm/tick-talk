@@ -1,8 +1,8 @@
 @if (post(); as post) {
-<app-avatar-circle
+<tt-avatar-circle
   class="size32"
   [avatarUrl]="post.author.avatarUrl"
-></app-avatar-circle>
+></tt-avatar-circle>
 
 <main class="post-body">
   <div class="post-header">
@@ -18,21 +18,21 @@
 
   <div class="post-counters">
     <div class="comments-counter">
-      <svg class="comments-icon svg16" icon="comments"></svg>
+      <tt-svg class="comments-icon svg16" icon="comments"></tt-svg>
       <span class="comments-amount">{{ comments().length }}</span>
     </div>
   </div>
 
   <div class="post-comments__wrapper">
     @for (comment of comments(); track $index) {
-    <app-comment [comment]="comment"></app-comment>
+    <tt-comment [comment]="comment"></tt-comment>
     }
   </div>
 
-  <app-post-input
+  <tt-post-input
     (created)="onCreated()"
     [postId]="post.id"
     [isCommentInput]="true"
-  ></app-post-input>
+  ></tt-post-input>
 </main>
 }

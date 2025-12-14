@@ -19,7 +19,7 @@
         routerLink="{{ menuItem.link }}"
         routerLinkActive="active"
       >
-        <svg class="nav__icon" [icon]="menuItem.icon"></svg>
+        <tt-svg class="nav__icon" [icon]="menuItem.icon"></tt-svg>
         <span class="nav__text">{{ menuItem.label }}</span>
       </a>
     </li>
@@ -31,7 +31,7 @@
   <h3 class="subscribers__title">Подписки</h3>
   <ul class="subscribers__list">
     @for (profile of subscribers$ | async; track $index) {
-    <app-subscriber-card [profile]="profile"></app-subscriber-card>
+    <tt-subscriber-card [profile]="profile"></tt-subscriber-card>
     }
   </ul>
   <a class="subscribers__link" [routerLink]="['/subscribers']"
@@ -60,7 +60,7 @@
 
   <span class="profile__name">{{ me.username }}</span>
   <a class="profile__settings-link" [routerLink]="['/settings']">
-    <svg class="profile-settings__icon" icon="settings"></svg>
+    <tt-svg class="profile-settings__icon" icon="settings"></tt-svg>
   </a>
   }
 </footer>

@@ -3,7 +3,7 @@ import { AvatarCircleComponent } from '@tt/common-ui';
 import { ChatsResponse } from '../../data';
 
 @Component({
-  selector: 'button[chats]',
+  selector: 'tt-chats-btn',
   imports: [AvatarCircleComponent],
   templateUrl: './chats-btn.component.html',
   styleUrl: './chats-btn.component.scss',

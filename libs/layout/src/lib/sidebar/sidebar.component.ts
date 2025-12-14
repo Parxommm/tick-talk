@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { SvgIconComponent, ImgUrlPipe } from '@tt/common-ui';
 import { SubscriberCardComponent } from './subscriber-card/subscriber-card.component';
 import { RouterLink, RouterLinkActive } from '@angular/router';
@@ -7,7 +7,7 @@ import { AsyncPipe } from '@angular/common';
 import { firstValueFrom } from 'rxjs';
 
 @Component({
-  selector: 'app-sidebar',
+  selector: 'tt-sidebar',
   imports: [
     SvgIconComponent,
     SubscriberCardComponent,
@@ -19,7 +19,7 @@ import { firstValueFrom } from 'rxjs';
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',
 })
-export class SidebarComponent {
+export class SidebarComponent implements OnInit {
   profileService = inject(ProfileService);
   subscribers$ = this.profileService.getSubscribersShortList();
   me = this.profileService.me;

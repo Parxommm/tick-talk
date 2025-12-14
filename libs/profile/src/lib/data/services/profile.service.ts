@@ -47,6 +47,7 @@ export class ProfileService {
     return this.http.post(`${this.baseApiUrl}account/upload_image`, fd);
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   filterProfiles(params: Record<string, any>) {
     return this.http
       .get<Pageble<Profile>>(`${this.baseApiUrl}account/accounts`, { params })

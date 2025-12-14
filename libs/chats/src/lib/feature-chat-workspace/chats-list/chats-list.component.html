@@ -10,10 +10,9 @@
 </div>
 
 @for(chat of chats$ | async; track $index ) {
-<button
-  chats
+<tt-chats-btn
   [chat]="chat"
   [routerLink]="[chat.id]"
   routerLinkActive="active"
-></button>
+></tt-chats-btn>
 }

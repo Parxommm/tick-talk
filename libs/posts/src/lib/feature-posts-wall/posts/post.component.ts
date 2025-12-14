@@ -6,7 +6,7 @@ import { Post, PostComment, PostService } from '../../data';
 import { AvatarCircleComponent, SvgIconComponent } from '@tt/common-ui';
 
 @Component({
-  selector: 'app-post',
+  selector: 'tt-post',
   imports: [
     AvatarCircleComponent,
     DatePipe,
@@ -25,12 +25,12 @@ export class PostComponent implements OnInit {
   comments = signal<PostComment[]>([]);
 
   async ngOnInit(): Promise<void> {
-    this.comments.set(this.post()!.comments);
+    this.comments.set(this.post()?.comments ?? []);
   }
 
   async onCreated() {
     const comments = await firstValueFrom(
-      this.postService.getCommentsByPostId(this.post()!.id)
+      this.postService.getCommentsByPostId(this.post()?.id ?? 0)
     );
     this.comments.set(comments);
   }

@@ -7,7 +7,7 @@ import { map, startWith, switchMap } from 'rxjs';
 import { ChatsService } from '../../data';
 
 @Component({
-  selector: 'app-chats-list',
+  selector: 'tt-chats-list',
   imports: [
     ChatsBtnComponent,
     AsyncPipe,
@@ -32,7 +32,7 @@ export class ChatsListComponent {
           return chats.filter((chat) => {
             return `${chat.userFrom.firstName} ${chat.userFrom.lastName}`
               .toLowerCase()
-              .includes(inputValue!.toLowerCase());
+              .includes(inputValue?.toLowerCase() ?? '');
           });
         })
       );
