@@ -1,5 +1,4 @@
-import { ImgUrlPipe } from '../pipes';
 import { AvatarCircleComponent } from './avatar-circle/avatar-circle.component';
 import { SvgIconComponent } from './svg-icon/svg-icon.component';
 
-export { AvatarCircleComponent, SvgIconComponent, ImgUrlPipe };
+export { AvatarCircleComponent, SvgIconComponent };

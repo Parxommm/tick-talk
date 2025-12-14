@@ -4,12 +4,10 @@
     "outDir": "../../dist/out-tsc",
     "declaration": true,
     "declarationMap": true,
-    "types": [],
-    "sourceMap": true
+    "inlineSources": true,
+    "sourceMap": true,
+    "types": []
   },
   "exclude": ["src/**/*.spec.ts", "jest.config.ts", "src/**/*.test.ts"],
-  "include": [
-    "src/**/*.ts",
-    "../interfaces/src/lib/profile/profile.interface.ts"
-  ]
+  "include": ["src/**/*.ts"]
 }
