@@ -1,0 +1,67 @@
+import { Component, effect, inject, ViewChild } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AvatarUploadComponent, ProfileHeaderComponent } from '../../ui/index';
+import { ProfileService, PartialProfile } from '../../data/index';
+import { firstValueFrom } from 'rxjs';
+
+@Component({
+  selector: 'app-settings-page',
+  imports: [ProfileHeaderComponent, ReactiveFormsModule, AvatarUploadComponent],
+  templateUrl: './settings-page.component.html',
+  styleUrl: './settings-page.component.scss',
+})
+export class SettingsPageComponent {
+  fb = inject(FormBuilder);
+  profileService = inject(ProfileService);
+
+  @ViewChild(AvatarUploadComponent) avatarUploader!: AvatarUploadComponent;
+
+  form = this.fb.group({
+    firstName: ['', Validators.required],
+    lastName: ['', Validators.required],
+    username: [{ value: '', disabled: true }, Validators.required],
+    description: [''],
+    stack: [''],
+  });
+
+  constructor() {
+    effect(() => {
+      this.form.patchValue({
+        ...this.profileService.me(),
+        stack: this.mergeStack(this.profileService.me()?.stack),
+      });
+    });
+  }
+
+  onSave() {
+    this.form.markAllAsTouched();
+    this.form.updateValueAndValidity();
+
+    if (this.form.valid) {
+      firstValueFrom(
+        this.profileService.patchProfile({
+          ...(this.form.value as PartialProfile),
+          stack: this.splitStack(this.form.value.stack),
+        })
+      );
+    }
+
+    if (this.avatarUploader.avatar) {
+      firstValueFrom(
+        this.profileService.uploadAvatar(this.avatarUploader.avatar)
+      );
+    }
+  }
+
+  splitStack(stack: string | null | string[] | undefined) {
+    if (!stack) return [];
+    if (Array.isArray(stack)) return stack;
+    return stack.split(',');
+  }
+
+  mergeStack(stack: string | null | string[] | undefined) {
+    if (!stack) return '';
+    if (Array.isArray(stack)) return stack.join(',');
+    return stack;
+  }
+}

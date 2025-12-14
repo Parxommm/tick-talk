@@ -8,10 +8,10 @@ import {
   Renderer2,
 } from '@angular/core';
 import { AvatarCircleComponent, SvgIconComponent } from '@tt/common-ui';
-import { ProfileService } from '@tt/profile';
-import { PostService } from '../../data/services/post.service';
+import { PostService } from '../../data';
 import { FormsModule } from '@angular/forms';
 import { firstValueFrom } from 'rxjs';
+import { GlobalStoreService } from '@tt/shared';
 
 @Component({
   selector: 'app-post-input',
@@ -22,7 +22,7 @@ import { firstValueFrom } from 'rxjs';
 export class PostInputComponent {
   isCommentInput = input<boolean>(false);
   r2 = inject(Renderer2);
-  profile = inject(ProfileService).me;
+  profile = inject(GlobalStoreService).me;
   postService = inject(PostService);
   postText = '';
   postId = input<number>(0);

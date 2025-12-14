@@ -1,5 +1,5 @@
-export { ProfileService } from './lib/data/services/profile.service';
-export type {
-  Profile,
-  PartialProfile,
-} from './lib/data/interfaces/profile.interface';
+export * from './lib/feature-profile-page';
+export * from './lib/feature-profile-settings';
+export * from './lib/feature-profile-list';
+export * from './lib/data';
+export * from './lib/ui';
