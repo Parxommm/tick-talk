@@ -9,7 +9,7 @@ import { ProfileService } from '../../data';
 import { ProfileHeaderComponent } from '../../ui';
 
 @Component({
-  selector: 'app-profile-page',
+  selector: 'tt-profile-page',
   imports: [
     ProfileHeaderComponent,
     AsyncPipe,

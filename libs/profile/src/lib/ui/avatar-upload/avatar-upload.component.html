@@ -1,14 +1,14 @@
 <img class="avatar" [src]="preview()" alt="avatar" />
 
 <div
-  dnd
+  ttDnd
   class="dropzone"
   tabindex="0"
   (keyup.enter)="fileDrop.click()"
   (fileDropped)="onFileDropped($event)"
 >
   <div class="dropzone__content">
-    <svg class="dropzone__icon" icon="upload"></svg>
+    <tt-svg class="dropzone__icon" icon="upload"></tt-svg>
     <span class="dropzone__text">
       Перетащите изображение или <em class="dropzone__text_link">Загрузите</em
       > (разрешение до 5,000 x 5,000 px)

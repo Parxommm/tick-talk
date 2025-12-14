@@ -8,7 +8,7 @@ import { ChatWorkspaceHeaderComponent } from './chat-workspace-header/chat-works
 import { ChatWorkspaceMessagesWrapperComponent } from './chat-workspace-messages-wrapper/chat-workspace-messages-wrapper.component';
 
 @Component({
-  selector: 'app-chat-workspace',
+  selector: 'tt-chat-workspace',
   imports: [
     ChatWorkspaceHeaderComponent,
     ChatWorkspaceMessagesWrapperComponent,

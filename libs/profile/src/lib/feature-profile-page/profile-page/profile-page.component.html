@@ -1,11 +1,11 @@
 @if (profile$ | async; as profile) {
 <header class="profile-page__header">
-  <app-profile-header [profile]="profile"></app-profile-header>
+  <tt-profile-header [profile]="profile"></tt-profile-header>
 
   @if (isMyPage()) {
   <a class="btn btn-settings" [routerLink]="['/settings']">
     <span>Редактировать</span>
-    <svg class="btn__icon" icon="settings"></svg>
+    <tt-svg class="btn__icon" icon="settings"></tt-svg>
   </a>
   } @else {
   <button class="btn btn-settings" (click)="startChatWith(profile.id)">
@@ -15,7 +15,7 @@
 </header>
 
 <main class="profile-page__body">
-  <app-post-feed> </app-post-feed>
+  <tt-post-feed> </tt-post-feed>
   <article class="profile-page__sidebar">
     <div class="profile-page__subscribers">
       <div class="subscribers__header">

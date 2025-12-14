@@ -14,7 +14,7 @@ import { firstValueFrom } from 'rxjs';
 import { GlobalStoreService } from '@tt/shared';
 
 @Component({
-  selector: 'app-post-input',
+  selector: 'tt-post-input',
   imports: [AvatarCircleComponent, SvgIconComponent, FormsModule],
   templateUrl: './post-input.component.html',
   styleUrl: './post-input.component.scss',
@@ -48,7 +48,7 @@ export class PostInputComponent {
       firstValueFrom(
         this.postService.createComment({
           text: this.postText,
-          authorId: this.profile()!.id,
+          authorId: this.profile()?.id ?? 0,
           postId: this.postId(),
         })
       ).then(() => {
@@ -62,7 +62,7 @@ export class PostInputComponent {
       this.postService.createPost({
         title: 'Пост',
         content: this.postText,
-        authorId: this.profile()!.id,
+        authorId: this.profile()?.id ?? 0,
       })
     ).then(() => {
       this.postText = '';

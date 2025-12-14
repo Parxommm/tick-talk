@@ -4,7 +4,7 @@ import { ProfileFiltersComponent } from '../profile-filters/profile-filters.comp
 import { ProfileService } from '../../data';
 
 @Component({
-  selector: 'app-search-page',
+  selector: 'tt-search-page',
   imports: [ProfileCardComponent, ProfileFiltersComponent],
   templateUrl: './search-page.component.html',
   styleUrl: './search-page.component.scss',
