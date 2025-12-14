@@ -2,7 +2,8 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   standalone: true,
-  selector: 'tt-svg[icon]',
+  // eslint-disable-next-line @angular-eslint/component-selector
+  selector: 'svg[icon]',
   imports: [],
   template: '<svg:use [attr.href]="href"></svg:use>',
   styles: [],

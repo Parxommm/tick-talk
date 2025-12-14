@@ -5,7 +5,7 @@
   @if (isMyPage()) {
   <a class="btn btn-settings" [routerLink]="['/settings']">
     <span>Редактировать</span>
-    <tt-svg class="btn__icon" icon="settings"></tt-svg>
+    <svg class="btn__icon" icon="settings"></svg>
   </a>
   } @else {
   <button class="btn btn-settings" (click)="startChatWith(profile.id)">
