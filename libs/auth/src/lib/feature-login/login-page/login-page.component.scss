@@ -8,11 +8,23 @@
 
 .login-form {
   width: 440px;
+
+  .h1 {
+    font-size: 48px;
+    line-height: 56px;
+    font-weight: 800;
+  }
 }
 
 .login-form,
 .big_logo {
   place-self: center;
+}
+
+.big_logo {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .password-input {
@@ -45,4 +57,145 @@
 
 .tt-input.error {
   border-color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+  :host {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 24px;
+    margin: 0;
+    padding: 20px;
+    height: auto;
+    min-height: 100dvh;
+  }
+
+  .big_logo {
+    width: 200px;
+    max-width: 80%;
+    height: auto;
+    justify-self: center;
+    order: -1;
+  }
+
+  .login-form {
+    width: 100%;
+    max-width: 440px;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 480px) {
+  :host {
+    padding: 16px;
+    gap: 20px;
+  }
+
+  .big_logo {
+    width: 160px;
+    max-width: 70%;
+  }
+
+  .login-form {
+    width: 100%;
+  }
+
+  .login-form .h1 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  // Адаптация отступов
+  .mb60 {
+    margin-bottom: 32px;
+  }
+
+  .mb32 {
+    margin-bottom: 24px;
+  }
+
+  .mb16 {
+    margin-bottom: 12px;
+  }
+
+  // Адаптация кнопки показа пароля
+  .show-password {
+    right: 12px;
+    padding: 4px;
+
+    .show-password__icon {
+      width: 16px;
+      height: 14px;
+    }
+  }
+
+  // Адаптация текста ошибки
+  .error-message {
+    font-size: 11px;
+    line-height: 14px;
+  }
+}
+
+@media (max-width: 320px) {
+  :host {
+    padding: 12px;
+  }
+
+  // Адаптация заголовка
+  .login-form .h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  // Адаптация отступов
+  .mb60 {
+    margin-bottom: 24px;
+  }
+
+  .mb32 {
+    margin-bottom: 20px;
+  }
+
+  .mb16 {
+    margin-bottom: 10px;
+  }
+
+  // Адаптация label
+  .tt-control-label {
+    font-size: 11px;
+    line-height: 14px;
+  }
+
+  // Адаптация input
+  .tt-input {
+    height: 40px;
+    padding: 10px 16px;
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  // Адаптация кнопки
+  .btn {
+    padding: 10px 16px;
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  // Адаптация кнопки показа пароля
+  .show-password {
+    right: 10px;
+    padding: 2px;
+
+    svg {
+      width: 14px;
+      height: 12px;
+    }
+  }
+
+  // Адаптация текста ошибки
+  .error-message {
+    font-size: 10px;
+    line-height: 12px;
+    margin-top: 2px;
+  }
 }
