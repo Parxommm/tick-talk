@@ -5,6 +5,8 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ProfileService } from '@tt/profile';
 import { AsyncPipe } from '@angular/common';
 import { firstValueFrom } from 'rxjs';
+import { AuthService } from '@tt/auth';
+import { GlobalStoreService } from '@tt/shared';
 
 @Component({
   selector: 'tt-sidebar',
@@ -21,6 +23,8 @@ import { firstValueFrom } from 'rxjs';
 })
 export class SidebarComponent implements OnInit {
   profileService = inject(ProfileService);
+  authService = inject(AuthService);
+  globalStore = inject(GlobalStoreService);
   subscribers$ = this.profileService.getSubscribersShortList();
   me = this.profileService.me;
 
@@ -44,5 +48,15 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
     firstValueFrom(this.profileService.getMe());
+  }
+
+  logout() {
+    // Очищаем данные пользователя
+    this.profileService.me.set(null);
+    this.profileService.filteredProfiles.set([]);
+    this.globalStore.me.set(null);
+
+    // Выполняем выход (очистка токенов, cookies и перенаправление на login)
+    this.authService.logout();
   }
 }
