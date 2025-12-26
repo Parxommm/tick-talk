@@ -4,9 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "nx run tick-talk:serve",
-    "build": "nx build",
-    "watch": "nx build --watch --configuration development",
-    "test": "nx test"
+    "build": "nx build tick-talk",
+    "watch": "nx build tick-talk --watch --configuration development",
+    "test": "nx test tick-talk",
+    "serve-prod": "npx http-server dist/tick-talk/browser -p 8080 -c-1"
   },
   "prettier": {
     "overrides": [

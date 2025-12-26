@@ -121,3 +121,40 @@
   height: 16px;
   color: var(--primary-color);
 }
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  text-decoration: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--dark-hover-color);
+    color: var(--primary-color);
+
+    .logout-btn__icon,
+    .logout-btn__text {
+      color: var(--primary-color);
+    }
+  }
+}
+
+.logout-btn__text {
+  color: var(--light-color);
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.logout-btn__icon {
+  width: 16px;
+  height: 16px;
+  color: var(--light-color);
+}
