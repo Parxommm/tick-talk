@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal, input, HostBinding } from '@angular/core';
 import { SvgIconComponent, ImgUrlPipe } from '@tt/common-ui';
 import { SubscriberCardComponent } from './subscriber-card/subscriber-card.component';
 import { RouterLink, RouterLinkActive } from '@angular/router';
@@ -27,6 +27,12 @@ export class SidebarComponent implements OnInit {
   globalStore = inject(GlobalStoreService);
   subscribers$ = this.profileService.getSubscribersShortList();
   me = this.profileService.me;
+  isOpen = input<boolean>(true);
+
+  @HostBinding('class.open')
+  get isOpenClass() {
+    return this.isOpen();
+  }
 
   menuItems = [
     {
@@ -58,5 +64,14 @@ export class SidebarComponent implements OnInit {
 
     // Выполняем выход (очистка токенов, cookies и перенаправление на login)
     this.authService.logout();
+  }
+
+  closeOnMobile() {
+    // Закрываем меню на мобильных устройствах при клике на ссылку
+    if (window.innerWidth <= 768 && this.isOpen()) {
+      // Используем событие для закрытия через родительский компонент
+      const event = new CustomEvent('closeSidebar');
+      window.dispatchEvent(event);
+    }
   }
 }

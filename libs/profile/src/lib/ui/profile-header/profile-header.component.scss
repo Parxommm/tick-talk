@@ -22,3 +22,40 @@
   font-size: 14px;
   line-height: 21px;
 }
+
+// Адаптивность для мобильных устройств
+@media (max-width: 480px) {
+  :host {
+    gap: 16px;
+  }
+
+  .profile__fullname {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .profile__username {
+    font-size: 13px;
+    line-height: 18px;
+  }
+}
+
+@media (max-width: 320px) {
+  :host {
+    gap: 12px;
+  }
+
+  .profile__fullname {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .profile__username {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .profile__info {
+    gap: 2px;
+  }
+}
