@@ -28,7 +28,7 @@
 
 .profile-page__body {
   display: grid;
-  grid-template-columns: 1fr 340px;
+  grid-template-columns: 1fr auto;
   gap: 64px;
 }
 
@@ -63,6 +63,7 @@
 
 .subscribers_wrapper {
   display: flex;
+  flex-wrap: wrap;
   gap: 6px;
   align-items: center;
 }
@@ -101,8 +102,204 @@
   gap: 16px;
 }
 
+.about__title {
+  margin: 0;
+}
+
 .about__description {
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
+}
+
+.subscribers__title,
+.skills__title {
+  margin: 0;
+}
+
+// Постепенное уменьшение sidebar перед переключением на одну колонку
+@media (max-width: 1400px) {
+  .profile-page__body {
+    gap: 48px;
+  }
+
+  .profile-page__sidebar {
+    padding: 0 20px;
+    gap: 28px;
+    min-width: 300px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .profile-page__body {
+    gap: 40px;
+  }
+
+  .profile-page__sidebar {
+    padding: 0 16px;
+    gap: 24px;
+    min-width: 280px;
+  }
+
+  .subscriber__icon-btn {
+    .subscriber__icon {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .subscriber__icon-btn_add {
+    .subscriber__icon {
+      width: 14px;
+      height: 14px;
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .profile-page__body {
+    gap: 36px;
+  }
+
+  .profile-page__sidebar {
+    padding: 0 12px;
+    gap: 20px;
+    min-width: 220px;
+  }
+
+  .profile-page__subscribers {
+    gap: 14px;
+  }
+
+  .skills {
+    gap: 14px;
+  }
+
+  .about {
+    gap: 14px;
+  }
+
+  .subscribers__header {
+    .h6 {
+      font-size: 17px;
+      line-height: 23px;
+    }
+  }
+
+  .skills__title,
+  .about__title {
+    font-size: 17px;
+    line-height: 23px;
+  }
+}
+
+@media (max-width: 1020px) {
+  .profile-page__body {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .profile-page__sidebar {
+    order: -1;
+  }
+}
+
+// Адаптивность для мобильных устройств
+@media (max-width: 768px) {
+  .profile-page__header {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+    justify-content: flex-end;
+  }
+
+  .profile-page__sidebar {
+    padding: 0;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-page__header {
+    margin-bottom: 24px;
+    gap: 12px;
+  }
+
+  .btn-settings {
+    font-size: 13px;
+    line-height: 20px;
+    padding: 10px 16px;
+  }
+
+  .btn__icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .profile-page__body {
+    gap: 24px;
+  }
+
+  .profile-page__sidebar {
+    gap: 20px;
+  }
+
+  .profile-page__subscribers {
+    gap: 12px;
+  }
+
+  .subscribers__header {
+    .h6 {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+
+  .subscribers__counter {
+    font-size: 11px;
+    line-height: 14px;
+    padding: 1px 4px;
+  }
+
+  .subscriber__icon-btn {
+    .subscriber__icon {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .subscriber__icon-btn_add {
+    .subscriber__icon {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  .skills {
+    gap: 12px;
+
+    .h6 {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+
+  .skills__wrapper {
+    gap: 3px;
+  }
+
+  .about {
+    gap: 12px;
+
+    .h6 {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+
+  .about__description {
+    font-size: 11px;
+    line-height: 14px;
+  }
 }

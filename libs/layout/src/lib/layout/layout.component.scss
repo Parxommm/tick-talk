@@ -2,8 +2,87 @@
   height: 100dvh;
   display: grid;
   grid-template-columns: 300px 1fr;
+  position: relative;
+}
+
+.burger-menu {
+  display: none;
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  z-index: 1001;
+  background: var(--dark-color);
+  border: 1px solid var(--light-color);
+  border-radius: 2px;
+  padding: 8px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--dark-hover-color);
+    border-color: var(--primary-color);
+
+    .burger-menu__icon {
+      color: var(--primary-color);
+    }
+  }
+}
+
+.burger-menu__icon {
+  width: 24px;
+  height: 24px;
+  color: var(--light-color);
+}
+
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
 }
 
 .workspace {
   padding: 24px;
+}
+
+@media (max-width: 768px) {
+  :host {
+    grid-template-columns: 1fr;
+  }
+
+  .burger-menu {
+    display: flex;
+  }
+
+  .sidebar-overlay {
+    display: block;
+  }
+
+  tt-sidebar {
+    display: flex;
+  }
+}
+
+@media (min-width: 769px) {
+  .burger-menu {
+    display: none;
+  }
+
+  .sidebar-overlay {
+    display: none;
+  }
+
+  tt-sidebar {
+    display: block;
+  }
+
+  tt-sidebar.open {
+    transform: none;
+  }
 }

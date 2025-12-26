@@ -1,4 +1,25 @@
-<tt-sidebar></tt-sidebar>
+<button
+  class="burger-menu"
+  (click)="toggleSidebar()"
+  type="button"
+  aria-label="Toggle menu"
+>
+  <svg class="burger-menu__icon" icon="menu"></svg>
+</button>
+
+@if (isSidebarOpen()) {
+<div
+  class="sidebar-overlay"
+  (click)="closeSidebar()"
+  (keydown.enter)="closeSidebar()"
+  (keydown.escape)="closeSidebar()"
+  tabindex="0"
+  role="button"
+  aria-label="Close menu"
+></div>
+}
+
+<tt-sidebar [isOpen]="isSidebarOpen()"></tt-sidebar>
 
 <div class="workspace">
   <router-outlet></router-outlet>
