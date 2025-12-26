@@ -6,11 +6,17 @@
     <input
       formControlName="username"
       class="tt-input"
+      [class.error]="
+        username?.invalid && (username?.dirty || username?.touched)
+      "
       type="text"
       name="login"
       placeholder="Введите логин"
       autocomplete="username"
     />
+    @if (getUsernameError()) {
+    <span class="error-message">{{ getUsernameError() }}</span>
+    }
   </label>
 
   <label class="tt-control-label mb32">
@@ -19,6 +25,9 @@
       <input
         formControlName="password"
         class="tt-input"
+        [class.error]="
+          password?.invalid && (password?.dirty || password?.touched)
+        "
         [type]="isPasswordVisible() ? 'text' : 'password'"
         name="password"
         placeholder="Введите пароль"
@@ -28,6 +37,7 @@
         class="show-password"
         [class.active]="isPasswordVisible()"
         (click)="togglePasswordVisibility()"
+        type="button"
       >
         <svg
           width="19"
@@ -44,6 +54,9 @@
         </svg>
       </button>
     </div>
+    @if (getPasswordError()) {
+    <span class="error-message">{{ getPasswordError() }}</span>
+    }
   </label>
 
   <button class="btn btn-shadow" type="submit">Войти</button>
