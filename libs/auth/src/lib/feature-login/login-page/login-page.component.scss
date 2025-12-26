@@ -34,3 +34,15 @@
 .show-password.active {
   color: var(--primary-color);
 }
+
+.error-message {
+  display: block;
+  color: var(--primary-color);
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 4px;
+}
+
+.tt-input.error {
+  border-color: var(--primary-color);
+}
