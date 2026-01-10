@@ -20,3 +20,8 @@ export const selectProfileFilters = createSelector(
   profileFeature.selectProfileFilters,
   (filters) => filters
 );
+
+export const selectProfileLoading = createSelector(
+  profileFeature.selectProfileFeatureState,
+  (state) => state.loading
+);
