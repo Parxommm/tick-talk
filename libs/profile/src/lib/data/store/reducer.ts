@@ -8,6 +8,7 @@ export interface ProfileState {
   profileFilters: Record<string, any>;
   page: number;
   size: number;
+  loading: boolean;
 }
 
 export const initialProfileState: ProfileState = {
@@ -15,6 +16,7 @@ export const initialProfileState: ProfileState = {
   profileFilters: {},
   page: 1,
   size: 10,
+  loading: false,
 };
 
 export const profileFeature = createFeature({
@@ -25,6 +27,7 @@ export const profileFeature = createFeature({
     on(profileActions.profilesLoaded, (state, payload) => ({
       ...state,
       profilers: state.profilers.concat(payload.profiles),
+      loading: false,
     })),
 
     on(profileActions.filterEvents, (state, payload) => ({
@@ -32,6 +35,7 @@ export const profileFeature = createFeature({
       profilers: [],
       profileFilters: payload.filters,
       page: 1,
+      loading: true,
     })),
 
     on(profileActions.setPage, (state, payload) => {
@@ -42,6 +46,7 @@ export const profileFeature = createFeature({
       return {
         ...state,
         page,
+        loading: true,
       };
     })
   ),

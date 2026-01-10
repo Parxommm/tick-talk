@@ -10,5 +10,9 @@
   ></tt-infinite-scroll-trigger>
   } @placeholder {
   <div></div>
-  } } }
+  } } } @if (loading()) {
+  <div class="loading-indicator">
+    <svg class="loading-indicator__icon" icon="loading"></svg>
+  </div>
+  }
 </div>
