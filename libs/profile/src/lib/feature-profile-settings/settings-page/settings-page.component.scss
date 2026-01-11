@@ -61,3 +61,151 @@
   gap: 12px;
   align-self: end;
 }
+
+// Постепенное уменьшение sidebar перед переключением на одну колонку
+@media (max-width: 1400px) {
+  :host {
+    grid-gap: 40px;
+    grid-template-columns: 1fr;
+  }
+
+  .profile-form__wrapper {
+    padding: 28px;
+  }
+}
+
+@media (max-width: 1200px) {
+  :host {
+    grid-gap: 32px;
+    padding: 20px;
+  }
+
+  .profile-form__wrapper {
+    padding: 24px;
+    height: calc(100dvh - (20px * 4));
+  }
+
+  .profile-form {
+    grid-gap: 18px;
+  }
+
+  .two-columns {
+    grid-gap: 18px;
+  }
+}
+
+@media (max-width: 1100px) {
+  :host {
+    grid-gap: 28px;
+    padding: 16px;
+  }
+
+  .profile-form__wrapper {
+    padding: 20px;
+    height: calc(100dvh - (16px * 4));
+  }
+
+  .profile-form {
+    grid-gap: 16px;
+  }
+
+  .two-columns {
+    grid-gap: 16px;
+  }
+}
+
+@media (max-width: 1020px) {
+  :host {
+    grid-template-columns: 1fr;
+    grid-gap: 24px;
+    padding: 16px;
+  }
+
+  .profile-form__wrapper {
+    height: auto;
+    min-height: calc(100dvh - (16px * 4));
+  }
+}
+
+// Адаптивность для мобильных устройств
+@media (max-width: 768px) {
+  :host {
+    grid-gap: 20px;
+    padding: 12px;
+  }
+
+  .profile-form__wrapper {
+    padding: 20px 16px;
+    min-height: calc(100dvh - (12px * 4));
+  }
+
+  .profile-form {
+    grid-gap: 16px;
+  }
+
+  .two-columns {
+    grid-template-columns: 1fr;
+    grid-gap: 16px;
+  }
+
+  .profile-form__btns {
+    width: 100%;
+    flex-direction: row;
+    gap: 12px;
+    margin-top: 8px;
+  }
+
+  .profile-form__btns .btn {
+    flex: 1;
+  }
+}
+
+// Адаптивность для маленьких мобильных устройств
+@media (max-width: 480px) {
+  :host {
+    grid-gap: 16px;
+    padding: 8px;
+  }
+
+  .profile-form__wrapper {
+    padding: 16px 12px;
+    min-height: calc(100dvh - (8px * 4));
+  }
+
+  .profile-form {
+    grid-gap: 14px;
+  }
+
+  .two-columns {
+    grid-gap: 14px;
+  }
+
+  .profile-form__btns {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .profile-form__btns .btn {
+    width: 100%;
+  }
+}
+
+// Адаптивность для очень маленьких экранов
+@media (max-width: 320px) {
+  :host {
+    padding: 4px;
+  }
+
+  .profile-form__wrapper {
+    padding: 12px 8px;
+  }
+
+  .profile-form {
+    grid-gap: 12px;
+  }
+
+  .two-columns {
+    grid-gap: 12px;
+  }
+}
