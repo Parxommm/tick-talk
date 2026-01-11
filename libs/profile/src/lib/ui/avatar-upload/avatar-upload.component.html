@@ -4,6 +4,7 @@
   ttDnd
   class="dropzone"
   tabindex="0"
+  (click)="fileDrop.click()"
   (keyup.enter)="fileDrop.click()"
   (fileDropped)="onFileDropped($event)"
 >
@@ -19,6 +20,7 @@
     tabindex="-1"
     class="avatar-input"
     type="file"
+    accept="image/*"
     #fileDrop
     (change)="fileBrowserHandler($event)"
   />
