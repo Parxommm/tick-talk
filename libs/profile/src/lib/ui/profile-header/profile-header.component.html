@@ -1,8 +1,10 @@
 @if (profile(); as profile) {
 <tt-avatar-circle [avatarUrl]="profile.avatarUrl"> </tt-avatar-circle>
-}
 
 <div class="profile__info">
-  <h4 class="profile__fullname">Райн Гослинг</h4>
-  <span class="profile__username">ryan.gosling</span>
+  <h4 class="profile__fullname">
+    {{ profile?.firstName }} {{ profile?.lastName }}
+  </h4>
+  <span class="profile__username"> {{ profile?.username }} </span>
 </div>
+}
