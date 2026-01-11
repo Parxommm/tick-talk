@@ -4,6 +4,17 @@
   gap: 12px;
   padding: 8px 0;
   cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-radius: 2px;
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--dark-hover-color);
+
+    .subscriber__text {
+      color: var(--primary-color);
+    }
+  }
 }
 
 .subscriber__avatar {
@@ -17,4 +28,5 @@
   font-size: 14px;
   line-height: 24px;
   font-weight: 700;
+  transition: color 0.2s ease;
 }

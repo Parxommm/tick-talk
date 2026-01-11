@@ -4,7 +4,10 @@
   <div class="subscriptions-page__wrapper">
     @if (subscriptions$ | async; as subscriptions) { @if (subscriptions.length >
     0) { @for (profile of subscriptions; track profile.id) {
-    <tt-profile-card [profile]="profile"></tt-profile-card>
+    <tt-profile-card
+      [profile]="profile"
+      [isSubscriptionPage]="true"
+    ></tt-profile-card>
     } } @else {
     <div class="subscriptions-page__empty">
       <p>У вас пока нет подписок</p>
