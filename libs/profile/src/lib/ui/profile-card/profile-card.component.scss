@@ -17,6 +17,7 @@
   height: 70px;
   overflow: hidden;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .profile-card__info {
@@ -25,10 +26,236 @@
   gap: 8px;
 }
 
+.profile_card__description {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
 .profile_card__tags {
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
   align-items: flex-start;
   height: min-content;
+}
+
+.profile-card__actions_btns {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+// Адаптивность для средних экранов (769px - 1080px)
+@media (min-width: 769px) and (max-width: 1080px) {
+  .profile-card {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 20px 16px;
+  }
+
+  .avatar-name {
+    gap: 16px;
+  }
+
+  .profile-card__avatar {
+    width: 60px;
+    height: 60px;
+  }
+
+  .profile-card__info {
+    gap: 6px;
+  }
+
+  .profile-card__name.h6 {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .profile-card__username.subtitle {
+    font-size: 13px;
+    line-height: 19px;
+  }
+
+  .profile_card__description {
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .profile_card__tags {
+    gap: 3px;
+  }
+
+  .skill_tag {
+    font-size: 11px;
+    line-height: 20px;
+    height: 20px;
+    padding: 0 6px;
+  }
+
+  .profile-card__actions_btns .btn {
+    font-size: 13px;
+    line-height: 20px;
+    padding: 8px 14px;
+    max-width: 80%;
+    align-self: center;
+  }
+}
+
+// Адаптивность для планшетов
+@media (max-width: 1024px) {
+  .profile-card {
+    gap: 24px;
+    padding: 24px 20px;
+  }
+
+  .avatar-name {
+    gap: 16px;
+  }
+
+  .profile-card__avatar {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+// Адаптивность для мобильных устройств
+@media (max-width: 768px) {
+  .profile-card {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px 16px;
+  }
+
+  .avatar-name {
+    gap: 16px;
+  }
+
+  .profile-card__avatar {
+    width: 56px;
+    height: 56px;
+  }
+
+  .profile-card__info {
+    gap: 6px;
+  }
+
+  .profile_card__tags {
+    gap: 4px;
+  }
+
+  .profile-card__actions_btns {
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .profile-card__actions_btns .btn {
+    width: auto;
+    flex: 1;
+  }
+}
+
+// Адаптивность для маленьких мобильных устройств
+@media (max-width: 480px) {
+  .profile-card {
+    gap: 16px;
+    padding: 16px 12px;
+  }
+
+  .avatar-name {
+    grid-template-columns: 48px 1fr;
+    gap: 12px;
+  }
+
+  .profile-card__avatar {
+    width: 48px;
+    height: 48px;
+  }
+
+  .profile-card__info {
+    gap: 4px;
+  }
+
+  .profile-card__name.h6 {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .profile-card__username.subtitle {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .profile_card__description {
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .profile_card__tags {
+    gap: 3px;
+  }
+
+  .skill_tag {
+    font-size: 11px;
+    line-height: 20px;
+    height: 20px;
+    padding: 0 6px;
+  }
+
+  .profile-card__actions_btns {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .profile-card__actions_btns .btn {
+    width: 100%;
+    font-size: 13px;
+    line-height: 20px;
+    padding: 8px 16px;
+  }
+}
+
+// Адаптивность для очень маленьких экранов
+@media (max-width: 320px) {
+  .profile-card {
+    padding: 12px 8px;
+    gap: 12px;
+  }
+
+  .avatar-name {
+    grid-template-columns: 40px 1fr;
+    gap: 10px;
+  }
+
+  .profile-card__avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .profile-card__name.h6 {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .profile-card__username.subtitle {
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  .profile_card__description {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .skill_tag {
+    font-size: 10px;
+    line-height: 18px;
+    height: 18px;
+    padding: 0 4px;
+  }
+
+  .profile-card__actions_btns .btn {
+    font-size: 12px;
+    line-height: 18px;
+    padding: 6px 12px;
+  }
 }

@@ -50,3 +50,135 @@
     transform: rotate(360deg);
   }
 }
+
+// Адаптивность для средних экранов (769px - 1080px)
+@media (min-width: 769px) and (max-width: 1080px) {
+  .subscriptions-page {
+    padding: 12px;
+  }
+
+  .subscriptions-page__title {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+
+  .subscriptions-page__wrapper {
+    grid-gap: 4px;
+  }
+}
+
+// Адаптивность для планшетов
+@media (max-width: 1024px) {
+  .subscriptions-page {
+    padding: 16px;
+  }
+
+  .subscriptions-page__title {
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+
+  .subscriptions-page__wrapper {
+    grid-gap: 6px;
+  }
+}
+
+// Адаптивность для мобильных устройств
+@media (max-width: 768px) {
+  :host {
+    height: calc(100vh - 20px);
+  }
+
+  .subscriptions-page {
+    padding: 16px 12px;
+  }
+
+  .subscriptions-page__title {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .subscriptions-page__wrapper {
+    grid-gap: 6px;
+  }
+
+  .subscriptions-page__empty {
+    padding: 36px 24px;
+    font-size: 14px;
+  }
+
+  .loading-indicator {
+    padding: 20px;
+  }
+
+  .loading-indicator__icon {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+// Адаптивность для маленьких мобильных устройств
+@media (max-width: 480px) {
+  :host {
+    height: calc(100vh - 10px);
+  }
+
+  .subscriptions-page {
+    padding: 12px 8px;
+  }
+
+  .subscriptions-page__title {
+    font-size: 18px;
+    margin-bottom: 12px;
+    line-height: 24px;
+  }
+
+  .subscriptions-page__wrapper {
+    grid-gap: 4px;
+  }
+
+  .subscriptions-page__empty {
+    padding: 32px 16px;
+    font-size: 13px;
+  }
+
+  .loading-indicator {
+    padding: 16px;
+  }
+
+  .loading-indicator__icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+// Адаптивность для очень маленьких экранов
+@media (max-width: 320px) {
+  .subscriptions-page {
+    padding: 8px 4px;
+  }
+
+  .subscriptions-page__title {
+    font-size: 16px;
+    margin-bottom: 10px;
+    line-height: 22px;
+  }
+
+  .subscriptions-page__wrapper {
+    grid-gap: 3px;
+  }
+
+  .subscriptions-page__empty {
+    padding: 24px 12px;
+    font-size: 12px;
+  }
+
+  .loading-indicator {
+    padding: 12px;
+  }
+
+  .loading-indicator__icon {
+    width: 20px;
+    height: 20px;
+  }
+}
