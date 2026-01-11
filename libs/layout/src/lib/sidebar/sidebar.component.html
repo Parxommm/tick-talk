@@ -28,15 +28,18 @@
   </ul>
 </nav>
 
-<section class="subscribers">
-  <h3 class="subscribers__title">Подписки</h3>
-  <ul class="subscribers__list">
-    @for (profile of subscribers$ | async; track $index) {
+<section class="subscriptions">
+  <h3 class="subscriptions__title">Подписки</h3>
+  <ul class="subscriptions__list">
+    @for (profile of subscriptions$ | async; track $index) {
     <tt-subscriber-card [profile]="profile"></tt-subscriber-card>
     }
   </ul>
-  <a class="subscribers__link" [routerLink]="['/subscribers']" (click)="closeOnMobile()"
-    >Все подписчики ></a
+  <a
+    class="subscriptions__link"
+    [routerLink]="['/subscriptions']"
+    (click)="closeOnMobile()"
+    >Все подписки ></a
   >
 </section>
 
@@ -60,7 +63,11 @@
   }
 
   <span class="profile__name">{{ me.username }}</span>
-  <a class="profile__settings-link" [routerLink]="['/settings']" (click)="closeOnMobile()">
+  <a
+    class="profile__settings-link"
+    [routerLink]="['/settings']"
+    (click)="closeOnMobile()"
+  >
     <svg class="profile-settings__icon" icon="settings"></svg>
   </a>
   }

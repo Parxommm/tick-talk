@@ -8,6 +8,7 @@ import {
   SearchPageComponent,
   SettingsPageComponent,
   ProfilePageComponent,
+  SubscriptionsPageComponent,
 } from '@tt/profile';
 import { profileFeature, ProfileEffects } from '@tt/profile';
 
@@ -36,6 +37,10 @@ export const routes: Routes = [
           provideState(profileFeature),
           provideEffects(ProfileEffects),
         ],
+      },
+      {
+        path: 'subscriptions',
+        component: SubscriptionsPageComponent,
       },
       { path: 'chats', loadChildren: () => chatsRoutes },
     ],

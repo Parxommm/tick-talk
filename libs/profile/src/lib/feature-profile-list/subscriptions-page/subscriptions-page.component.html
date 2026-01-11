@@ -1,0 +1,18 @@
+<div class="subscriptions-page">
+  <h1 class="subscriptions-page__title">Все подписки</h1>
+
+  <div class="subscriptions-page__wrapper">
+    @if (subscriptions$ | async; as subscriptions) { @if (subscriptions.length >
+    0) { @for (profile of subscriptions; track profile.id) {
+    <tt-profile-card [profile]="profile"></tt-profile-card>
+    } } @else {
+    <div class="subscriptions-page__empty">
+      <p>У вас пока нет подписок</p>
+    </div>
+    } } @else {
+    <div class="loading-indicator">
+      <svg class="loading-indicator__icon" icon="loading"></svg>
+    </div>
+    }
+  </div>
+</div>

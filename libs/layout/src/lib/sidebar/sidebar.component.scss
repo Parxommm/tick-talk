@@ -91,28 +91,28 @@
   font-weight: 700;
 }
 
-.subscribers {
+.subscriptions {
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding: 0 16px;
 }
 
-.subscribers__title {
+.subscriptions__title {
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
   color: var(--light-color_75);
 }
 
-.subscribers__list {
+.subscriptions__list {
   display: flex;
   flex-direction: column;
   gap: 6px;
   list-style: none;
 }
 
-.subscribers__link {
+.subscriptions__link {
   text-decoration: none;
   font-weight: 500;
   font-size: 12px;
