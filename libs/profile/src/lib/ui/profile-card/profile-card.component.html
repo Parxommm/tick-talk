@@ -22,8 +22,10 @@
     }
   </div>
   <div class="profile-card__actions_btns">
-    <button class="btn">Подписаться</button>
-    <button class="btn">Создать</button>
+    <button class="btn">
+      {{ isSubscriptionPage ? "Отписаться" : "Подписаться" }}
+    </button>
+    <button class="btn">Написать</button>
   </div>
 </div>
 }

@@ -118,6 +118,15 @@
   font-size: 12px;
   line-height: 16px;
   color: var(--primary-color);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+
+  &:hover,
+  &:focus-visible {
+    opacity: 0.8;
+    transform: translateX(4px);
+    color: var(--light-color);
+  }
 }
 
 .profile {
@@ -128,6 +137,22 @@
   padding: 8px 16px;
   background-color: var(--dark-hover-color);
   border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, ease;
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--dark-active-color);
+
+    .profile__name {
+      color: var(--light-color);
+    }
+
+    .profile-settings__icon {
+      color: var(--light-color);
+      transform: rotate(90deg);
+    }
+  }
 }
 
 .profile__name {
@@ -136,6 +161,7 @@
   line-height: 24px;
   color: var(--primary-color);
   cursor: pointer;
+  transition: color 0.2s ease;
 }
 
 .profile__settings-link {
@@ -150,6 +176,7 @@
   width: 16px;
   height: 16px;
   color: var(--primary-color);
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .logout-btn {

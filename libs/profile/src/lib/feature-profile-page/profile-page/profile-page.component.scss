@@ -24,6 +24,7 @@
   width: 16px;
   height: 16px;
   color: var(--dark-color);
+  transition: color 0.2s ease;
 }
 
 .profile-page__body {
@@ -69,10 +70,22 @@
 }
 
 .subscriber__icon-btn {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+
   .subscriber__icon {
     width: 36px;
     height: 36px;
     border-radius: 50%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  &:hover,
+  &:focus-visible {
+    .subscriber__icon {
+      transform: scale(1.1);
+      box-shadow: 0 0 8px var(--primary-color);
+    }
   }
 }
 

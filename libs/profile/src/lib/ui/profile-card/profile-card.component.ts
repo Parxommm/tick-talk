@@ -11,4 +11,5 @@ import { ImgUrlPipe } from '@tt/common-ui';
 })
 export class ProfileCardComponent {
   @Input() profile!: Profile;
+  @Input() isSubscriptionPage = false;
 }
