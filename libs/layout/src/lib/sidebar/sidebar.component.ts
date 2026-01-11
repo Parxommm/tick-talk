@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal, input, HostBinding } from '@angular/core';
+import { Component, inject, OnInit, input, HostBinding } from '@angular/core';
 import { SvgIconComponent, ImgUrlPipe } from '@tt/common-ui';
 import { SubscriberCardComponent } from './subscriber-card/subscriber-card.component';
 import { RouterLink, RouterLinkActive } from '@angular/router';
@@ -26,6 +26,7 @@ export class SidebarComponent implements OnInit {
   authService = inject(AuthService);
   globalStore = inject(GlobalStoreService);
   subscribers$ = this.profileService.getSubscribersShortList();
+  subscriptions$ = this.profileService.getSubscriptionsShortList();
   me = this.profileService.me;
   isOpen = input<boolean>(true);
 
