@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { getAssetPath } from '@tt/shared';
 
 @Component({
   standalone: true,
@@ -11,6 +12,7 @@ import { Component, Input } from '@angular/core';
 export class SvgIconComponent {
   @Input() icon = '';
   get href() {
-    return `/assets/svg/${this.icon}.svg#${this.icon}`;
+    // Use relative path - Angular will automatically prepend baseHref
+    return `${getAssetPath(`svg/${this.icon}.svg`)}#${this.icon}`;
   }
 }
