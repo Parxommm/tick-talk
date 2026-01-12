@@ -5,6 +5,9 @@
     "ng": "ng",
     "start": "nx run tick-talk:serve",
     "build": "nx build tick-talk",
+    "build:github": "nx build tick-talk --configuration=github && npm run copy-404 && npm run fix-asset-paths",
+    "copy-404": "node scripts/copy-404.js",
+    "fix-asset-paths": "node scripts/fix-asset-paths.js",
     "watch": "nx build tick-talk --watch --configuration development",
     "test": "nx test tick-talk",
     "serve-prod": "npx http-server dist/tick-talk/browser -p 8080 -c-1"

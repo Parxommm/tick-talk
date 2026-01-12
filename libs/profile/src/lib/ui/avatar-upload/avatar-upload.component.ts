@@ -1,6 +1,7 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { SvgIconComponent, DndDirective } from '@tt/common-ui';
 import { ProfileService } from '../../data/index';
+import { getAssetPath } from '@tt/shared';
 
 @Component({
   selector: 'tt-avatar-upload',
@@ -31,7 +32,7 @@ export class AvatarUploadComponent {
       return this.BASE_URL + avatarUrl;
     }
 
-    return '/assets/images/avatar-placeholder.png';
+    return getAssetPath('images/avatar-placeholder.png');
   });
 
   fileBrowserHandler(event: Event) {
