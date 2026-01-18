@@ -1,12 +1,17 @@
 <li class="subscriber__item">
-  <img
-    class="subscriber__avatar"
-    [src]="profile.avatarUrl | imgUrl"
-    [alt]="profile.lastName"
-    width="32"
-    height="32"
-  />
-  <span class="subscriber__text"
-    >{{ profile.firstName }} {{ profile.lastName }}</span
+  <a
+    class="subscriber__link"
+    [routerLink]="['/profile', profile.id]"
   >
+    <img
+      class="subscriber__avatar"
+      [src]="profile.avatarUrl | imgUrl"
+      [alt]="profile.lastName"
+      width="32"
+      height="32"
+    />
+    <span class="subscriber__text"
+      >{{ profile.firstName }} {{ profile.lastName }}</span
+    >
+  </a>
 </li>
