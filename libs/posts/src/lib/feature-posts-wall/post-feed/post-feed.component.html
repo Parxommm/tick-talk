@@ -1,5 +1,15 @@
-<tt-post-input></tt-post-input>
+@if (isMyProfile()) {
+  <tt-post-input class="post-feed__input"></tt-post-input>
+}
 
-@for (post of feed(); track $index) {
-<tt-post [post]="post"></tt-post>
+@if (feed().length === 0) {
+  <div class="post-feed__empty">
+    <p class="post-feed__empty-text">
+      {{ isMyProfile() ? 'Постов еще нет, напишите первый пост' : 'У пользователя пока нет постов' }}
+    </p>
+  </div>
+} @else {
+  @for (post of feed(); track $index) {
+    <tt-post [post]="post"></tt-post>
+  }
 }

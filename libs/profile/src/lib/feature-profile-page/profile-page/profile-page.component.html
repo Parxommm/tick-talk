@@ -15,7 +15,10 @@
 </header>
 
 <main class="profile-page__body">
-  <tt-post-feed> </tt-post-feed>
+  <tt-post-feed
+    [profileId]="isMyPage() ? undefined : profile.id"
+    [isMyProfile]="isMyPage()"
+  ></tt-post-feed>
   <article class="profile-page__sidebar">
     <div class="profile-page__subscribers">
       <div class="subscribers__header">

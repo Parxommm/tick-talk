@@ -29,6 +29,12 @@ export class PostService {
       .pipe(tap((res) => this.posts.set(res)));
   }
 
+  fetchPostsByProfileId(profileId: number) {
+    return this.#http
+      .get<Post[]>(`${this.baseApiUrl}post/?user_id=${profileId}`)
+      .pipe(tap((res) => this.posts.set(res)));
+  }
+
   createComment(payload: CommentCreateDto) {
     return this.#http.post<PostComment>(`${this.baseApiUrl}comment/`, payload);
   }

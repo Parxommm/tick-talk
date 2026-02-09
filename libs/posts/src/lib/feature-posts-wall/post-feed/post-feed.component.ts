@@ -4,6 +4,8 @@ import {
   ElementRef,
   HostListener,
   inject,
+  input,
+  effect,
   Renderer2,
 } from '@angular/core';
 import { PostInputComponent } from '../../ui/post-input/post-input.component';
@@ -22,6 +24,9 @@ export class PostFeedComponent implements AfterViewInit {
   hostElement = inject(ElementRef);
   r2 = inject(Renderer2);
 
+  profileId = input<number>();
+  isMyProfile = input<boolean>(false);
+
   feed = this.postService.posts;
 
   @HostListener('window:resize')
@@ -30,7 +35,18 @@ export class PostFeedComponent implements AfterViewInit {
   }
 
   constructor() {
-    firstValueFrom(this.postService.fetchPosts());
+    effect(() => {
+      const id = this.profileId();
+      if (id) {
+        firstValueFrom(this.postService.fetchPostsByProfileId(id));
+      } else {
+        firstValueFrom(this.postService.fetchPosts());
+      }
+    });
+    effect(() => {
+      this.feed();
+      this.resizeFeed();
+    });
   }
 
   ngAfterViewInit() {
@@ -38,9 +54,17 @@ export class PostFeedComponent implements AfterViewInit {
   }
 
   resizeFeed() {
-    const { top } = this.hostElement.nativeElement.getBoundingClientRect();
-    const height = window.innerHeight - top - 24 - 24;
+    const host = this.hostElement.nativeElement as HTMLElement;
+    const hasPosts = this.feed().length > 0;
 
-    this.r2.setStyle(this.hostElement.nativeElement, 'height', `${height}px`);
+    if (hasPosts) {
+      const { top } = host.getBoundingClientRect();
+      const height = window.innerHeight - top - 24 - 24;
+      host.classList.remove('post-feed--empty');
+      this.r2.setStyle(host, 'height', `${height}px`);
+    } else {
+      host.classList.add('post-feed--empty');
+      this.r2.setStyle(host, 'height', 'auto');
+    }
   }
 }
