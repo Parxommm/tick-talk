@@ -44,4 +44,12 @@ export class PostService {
       .get<Post>(`${this.baseApiUrl}post/${postId}`)
       .pipe(map((post) => post.comments));
   }
+
+  deletePost(postId: number) {
+    return this.#http.delete<void>(`${this.baseApiUrl}post/${postId}`).pipe(
+      tap(() => {
+        this.posts.update((list) => list.filter((p) => p.id !== postId));
+      })
+    );
+  }
 }

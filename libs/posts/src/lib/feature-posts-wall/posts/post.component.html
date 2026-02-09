@@ -12,6 +12,18 @@
         post.createdAt | date : "HH:mm dd.MM.yyyy"
       }}</span>
     </strong>
+    @if (canDelete) {
+      <button
+        type="button"
+        class="post__delete-btn"
+        [title]="'Удалить'"
+        [disabled]="deleting()"
+        (click)="onDelete()"
+        aria-label="Удалить"
+      >
+        <svg class="post__delete-icon svg16" icon="close"></svg>
+      </button>
+    }
   </div>
 
   <p class="post-text">{{ post.content }}</p>

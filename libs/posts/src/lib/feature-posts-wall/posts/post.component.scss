@@ -10,6 +10,14 @@
 .post-body {
   display: grid;
   grid-gap: 12px;
+  position: relative;
+}
+
+.post-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
 }
 
 .post__author {
@@ -76,4 +84,35 @@
 .post-comments__wrapper::-webkit-scrollbar-track {
   background-color: var(--dark-color);
   border-radius: 4px;
+}
+
+.post__delete-btn {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+
+  &:hover:not(:disabled) {
+    color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: var(--primary-color);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.post__delete-icon {
+  display: block;
 }
