@@ -1,4 +1,13 @@
-import { Component, effect, inject, input, signal } from '@angular/core';
+import {
+  Component,
+  effect,
+  inject,
+  input,
+  signal,
+  viewChild,
+  ElementRef,
+  afterNextRender,
+} from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { firstValueFrom } from 'rxjs';
 import { CommentComponent, PostInputComponent } from '../../ui';
@@ -24,6 +33,8 @@ export class PostComponent {
   postService = inject(PostService);
   globalStore = inject(GlobalStoreService);
 
+  commentsWrapperRef = viewChild<ElementRef<HTMLElement>>('commentsWrapper');
+
   comments = signal<PostComment[]>([]);
   deleting = signal(false);
 
@@ -38,6 +49,20 @@ export class PostComponent {
       const p = this.post();
       this.comments.set(p?.comments ?? []);
     });
+    effect(() => {
+      this.comments();
+      this.scrollCommentsToBottom();
+    });
+    afterNextRender(() => this.scrollCommentsToBottom());
+  }
+
+  private scrollCommentsToBottom(): void {
+    setTimeout(() => {
+      const el = this.commentsWrapperRef()?.nativeElement;
+      if (el) {
+        el.scrollTop = el.scrollHeight;
+      }
+    }, 0);
   }
 
   async onCreated() {
@@ -45,6 +70,7 @@ export class PostComponent {
       this.postService.getCommentsByPostId(this.post()?.id ?? 0)
     );
     this.comments.set(comments);
+    this.scrollCommentsToBottom();
   }
 
   async onDelete() {

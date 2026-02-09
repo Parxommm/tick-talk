@@ -35,7 +35,7 @@
     </div>
   </div>
 
-  <div class="post-comments__wrapper">
+  <div class="post-comments__wrapper" #commentsWrapper>
     @for (comment of comments(); track $index) {
     <tt-comment [comment]="comment"></tt-comment>
     }
