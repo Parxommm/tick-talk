@@ -1,4 +1,4 @@
-import { Component, inject, input, OnInit, signal } from '@angular/core';
+import { Component, effect, inject, input, signal } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { firstValueFrom } from 'rxjs';
 import { CommentComponent, PostInputComponent } from '../../ui';
@@ -17,15 +17,18 @@ import { AvatarCircleComponent, SvgIconComponent } from '@tt/common-ui';
   templateUrl: './post.component.html',
   styleUrl: './post.component.scss',
 })
-export class PostComponent implements OnInit {
+export class PostComponent {
   post = input<Post>();
 
   postService = inject(PostService);
 
   comments = signal<PostComment[]>([]);
 
-  async ngOnInit(): Promise<void> {
-    this.comments.set(this.post()?.comments ?? []);
+  constructor() {
+    effect(() => {
+      const p = this.post();
+      this.comments.set(p?.comments ?? []);
+    });
   }
 
   async onCreated() {

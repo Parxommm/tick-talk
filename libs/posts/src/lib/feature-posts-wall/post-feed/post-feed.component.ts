@@ -36,11 +36,13 @@ export class PostFeedComponent implements AfterViewInit {
 
   constructor() {
     effect(() => {
+      const isMy = this.isMyProfile();
       const id = this.profileId();
-      if (id) {
-        firstValueFrom(this.postService.fetchPostsByProfileId(id));
-      } else {
+      this.postService.posts.set([]);
+      if (isMy) {
         firstValueFrom(this.postService.fetchPosts());
+      } else if (id) {
+        firstValueFrom(this.postService.fetchPostsByProfileId(id));
       }
     });
     effect(() => {
