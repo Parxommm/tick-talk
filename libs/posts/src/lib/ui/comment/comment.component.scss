@@ -21,3 +21,10 @@
   font-weight: 500;
   color: var(--light-color_75);
 }
+
+.comment__text {
+  margin: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  min-width: 0;
+}
