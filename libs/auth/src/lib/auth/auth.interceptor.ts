@@ -38,7 +38,13 @@ export const authTokenInterceptor: HttpInterceptorFn = (req, next) => {
   return next(addToken(req, token)).pipe(
     catchError((error: unknown) => {
       if (error instanceof HttpErrorResponse && error.status === 403) {
-        return refreshAndProceed(authService, req, next);
+        const detail = error.error?.detail;
+        const isInvalidToken =
+          detail === 'Invalid token' ||
+          (typeof detail === 'string' && detail.toLowerCase().includes('token'));
+        if (isInvalidToken) {
+          return refreshAndProceed(authService, req, next);
+        }
       }
       return throwError(() => error);
     })

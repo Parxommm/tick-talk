@@ -7,9 +7,11 @@ import {
   AbstractControl,
   ValidationErrors,
 } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../auth/auth.service';
 import { CommonModule } from '@angular/common';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'tt-login-page',
@@ -20,8 +22,16 @@ import { CommonModule } from '@angular/common';
 export class LoginPageComponent {
   authService = inject(AuthService);
   router = inject(Router);
+  route = inject(ActivatedRoute);
 
   isPasswordVisible = signal<boolean>(false);
+
+  sessionExpired = toSignal(
+    this.route.queryParams.pipe(
+      map((params) => params['sessionExpired'] === 'true')
+    ),
+    { initialValue: false }
+  );
 
   passwordCaseValidator = (
     control: AbstractControl

@@ -14,6 +14,7 @@ export class AuthService {
   private router = inject(Router);
 
   private readonly baseApiUrl = 'https://icherniakov.ru/yt-course/auth/';
+  private readonly cookiePath = '/';
 
   private _token: string | null = null;
   private _refreshToken: string | null = null;
@@ -61,24 +62,28 @@ export class AuthService {
       .pipe(
         tap((val) => this.saveTokens(val)),
         catchError((err) => {
-          this.logout();
+          this.logout('session_expired');
           return throwError(() => err);
         })
       );
   }
 
-  logout() {
+  logout(reason?: 'session_expired') {
+    this.cookieService.delete('token', this.cookiePath);
+    this.cookieService.delete('refreshToken', this.cookiePath);
     this.cookieService.deleteAll();
     this._token = null;
     this._refreshToken = null;
-    this.router.navigate(['/login']);
+    this.router.navigate(['/login'], {
+      queryParams: reason === 'session_expired' ? { sessionExpired: 'true' } : undefined,
+    });
   }
 
   saveTokens(res: TokenResponse) {
     this._token = res.access_token;
     this._refreshToken = res.refresh_token;
 
-    this.cookieService.set('token', this._token);
-    this.cookieService.set('refreshToken', this._refreshToken);
+    this.cookieService.set('token', this._token, undefined, this.cookiePath);
+    this.cookieService.set('refreshToken', this._refreshToken, undefined, this.cookiePath);
   }
 }

@@ -1,6 +1,12 @@
 <form action="" class="login-form" [formGroup]="form" (ngSubmit)="onSubmit()">
   <h1 class="h1 mb60">Вход</h1>
 
+  @if (sessionExpired()) {
+    <p class="session-expired-message mb24">
+      Сессия истекла. Войдите снова.
+    </p>
+  }
+
   <label class="tt-control-label mb16">
     Telegram username
     <input
