@@ -1,52 +1,70 @@
 # TickTalk
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.1.
+A social-style web app: posts feed, profiles, and chats. Generated with [Angular CLI](https://github.com/angular/angular-cli) 20.1.1, built as an Nx monorepo.
 
-## Development server
+## 📋 Features
 
-To start a local development server, run:
+- **Login** — user authentication (`/login`)
+- **Profile** — user profile page (`/profile/:id`, default `/profile/me`)
+- **Settings** — account management (`/settings`)
+- **Search** — content search (`/search`)
+- **Subscriptions** — subscriptions list (`/subscriptions`)
+- **Chats** — messaging (lazy-loaded, `/chats`)
 
-```bash
-ng serve
-```
+## 🛠 Technologies and libraries
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Frontend:** Angular 20, TypeScript 5.8, RxJS, SCSS
+- **State / API:** NgRx Store and Effects
+- **Utilities:** ngx-cookie-service
+- **Build & monorepo:** Nx 22, Angular CLI 20
+- **Testing:** Karma, Jasmine
+- **Code quality:** ESLint, Prettier (including Angular parser for HTML)
 
-## Code scaffolding
+## 🚀 Development server
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+To start the local development server:
 
 ```bash
-ng build
+npm run start
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Or via Nx:
 
-## Deploying to GitHub Pages
+```bash
+nx run tick-talk:serve
+```
 
-To build the project for GitHub Pages deployment:
+Once running, open `http://localhost:4200/` in your browser. The app reloads when you change source files.
+
+## 📦 Building
+
+To build the project:
+
+```bash
+npm run build
+```
+
+Or via Nx:
+
+```bash
+nx build tick-talk
+```
+
+Output goes to `dist/tick-talk` (with the application builder: `dist/tick-talk/browser`). The production build is optimized for size and speed.
+
+## 🌐 Deploying to GitHub Pages
+
+To build for GitHub Pages deployment:
 
 ```bash
 npm run build:github
 ```
 
-This will:
-1. Build the project with the correct `baseHref` for GitHub Pages (`/tick-talk/`)
-2. Copy `404.html` to the output directory for proper routing
+This script:
+
+1. Builds the project with the correct `baseHref` for GitHub Pages (`/tick-talk/`)
+2. Copies `404.html` to the output directory for proper routing
+3. Fixes asset paths for `baseHref`
 
 ### Deployment Steps
 
@@ -56,56 +74,38 @@ This will:
    ```
 
 2. **Deploy to GitHub Pages:**
-   
-   **Option A: Using gh-pages branch**
+
+   **Option A: gh-pages branch**
    ```bash
-   # Install gh-pages if not already installed
    npm install --save-dev gh-pages
-   
-   # Add deploy script to package.json (optional)
-   # "deploy": "npm run build:github && gh-pages -d dist/tick-talk/browser"
-   
-   # Deploy
    npx gh-pages -d dist/tick-talk/browser
    ```
 
-   **Option B: Using GitHub Actions**
-   - Create `.github/workflows/deploy.yml` (see example below)
-   - Push to your repository
-   - GitHub Actions will automatically deploy on push to main branch
+   **Option B: GitHub Actions**
+   - Create `.github/workflows/deploy.yml`
+   - On push to the repo, the workflow will deploy on push to main
 
 3. **Configure GitHub Pages:**
-   - Go to your repository Settings → Pages
-   - Select source: `gh-pages` branch (if using Option A) or `GitHub Actions` (if using Option B)
+   - Repository → Settings → Pages
+   - Source: `gh-pages` branch (Option A) or **GitHub Actions** (Option B)
 
-### Important Notes
+### Important
 
-- The `baseHref` is set to `/tick-talk/` in the GitHub build configuration
-- If your repository has a different name, update `baseHref` in:
-  - `apps/tick-talk/project.json` under `configurations.github.baseHref`
-  - `public/404.html` in the `<base href="...">` tag
-- The `404.html` file handles routing for direct URL access (e.g., refreshing the page on a route)
-- All routes will work correctly, including direct access to nested routes
-- **Asset paths**: All asset paths (images, icons, SVG) have been updated to use relative paths that work correctly with `baseHref`. The paths are automatically prefixed with the baseHref during build.
+- `baseHref` is set in `apps/tick-talk/project.json` under `configurations.github.baseHref`
+- If your repo has a different name, update `baseHref` in `project.json` and in `public/404.html` (the `<base href="...">` tag)
+- `404.html` is required for direct URL access (e.g. refreshing the page on a nested route)
+- Asset paths automatically respect `baseHref` during the build
 
-## Running unit tests
+## 🧪 Running unit tests
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+To run unit tests (Karma + Jasmine):
 
 ```bash
-ng test
+npm run test
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+Or via Nx:
 
 ```bash
-ng e2e
+nx test tick-talk
 ```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
