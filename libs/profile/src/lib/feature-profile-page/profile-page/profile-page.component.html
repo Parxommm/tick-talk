@@ -5,7 +5,7 @@
   @if (isMyPage()) {
   <a class="btn btn-settings" [routerLink]="['/settings']">
     <span>Редактировать</span>
-    <svg class="btn__icon" icon="settings"></svg>
+    <svg class="btn__icon" icon="settings" viewBox="0 0 14 14"></svg>
   </a>
   } @else {
   <button class="btn btn-settings" (click)="startChatWith(profile.id)">
@@ -56,7 +56,7 @@
       <h3 class="skills__title h6">Навыки</h3>
       <div class="skills__wrapper">
         @for (skill of profile.stack; track $index) {
-        <div class="skill_tag">{{ skill }}</div>
+        <a class="skill_tag" [routerLink]="['/search']" [queryParams]="{ stack: skill }">{{ skill }}</a>
         }
       </div>
     </div>
