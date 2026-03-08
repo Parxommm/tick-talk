@@ -24,7 +24,13 @@
   width: 16px;
   height: 16px;
   color: var(--dark-color);
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
+  transform-origin: center;
+}
+
+a.btn-settings:hover .btn__icon,
+a.btn-settings:focus-visible .btn__icon {
+  transform: rotate(90deg);
 }
 
 .profile-page__body {

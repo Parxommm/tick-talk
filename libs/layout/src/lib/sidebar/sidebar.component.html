@@ -44,33 +44,35 @@
 </section>
 
 <footer class="profile">
-  @if(me(); as me) { @if (me.avatarUrl) {
-  <img
-    class="profile__avatar"
-    [src]="me.avatarUrl | imgUrl"
-    alt="profile avatar"
-    width="32"
-    height="32"
-  />
-  } @else {
-  <img
-    class="profile__avatar"
-    src="assets/images/avatar.png"
-    alt="profile avatar"
-    width="32"
-    height="32"
-  />
-  }
-
-  <span class="profile__name">{{ me.username }}</span>
   <a
-    class="profile__settings-link"
+    class="profile__link"
     [routerLink]="['/settings']"
     (click)="closeOnMobile()"
   >
-    <svg class="profile-settings__icon" icon="settings"></svg>
+    @if(me(); as me) { @if (me.avatarUrl) {
+    <img
+      class="profile__avatar"
+      [src]="me.avatarUrl | imgUrl"
+      alt="profile avatar"
+      width="32"
+      height="32"
+    />
+    } @else {
+    <img
+      class="profile__avatar"
+      src="assets/images/avatar.png"
+      alt="profile avatar"
+      width="32"
+      height="32"
+    />
+    }
+
+    <span class="profile__name">{{ me.username }}</span>
+    <span class="profile__icon">
+      <svg class="profile-settings__icon" icon="settings" viewBox="0 0 14 14"></svg>
+    </span>
+    }
   </a>
-  }
 </footer>
 
 <button class="logout-btn" (click)="logout()" type="button">
